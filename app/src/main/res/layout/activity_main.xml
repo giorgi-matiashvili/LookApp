@@ -3,16 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:textColor="#f00"
-        android:textSize="20sp"
+        android:singleLine="true"
+        android:hint="Username"
+        android:padding="7dp"
+        android:id="@+id/login_username"
+        android:background="@android:color/white"
+        />
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/login_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
         />
 
 </LinearLayout>

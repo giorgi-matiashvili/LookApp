@@ -20,7 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile files('/home/os/LookApp/libs/gson-2.2.4.jar')
+    compile files('M:/AndroidWorkspace/LookApp/libs/gson-2.2.4.jar')
 }
