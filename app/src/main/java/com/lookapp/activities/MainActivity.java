@@ -1,9 +1,11 @@
-package com.lookapp;
+package com.lookapp.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.lookapp.R;
 
 
 public class MainActivity extends Activity {
