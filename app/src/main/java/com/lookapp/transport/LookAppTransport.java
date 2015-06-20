@@ -95,7 +95,7 @@
 //            MobileBankError error = gson.fromJson(errorData, MobileBankError.class);
 //            MobileBankException ex = new MobileBankException(error);
 //
-//            if (ex.getMobileBankError().getStatusCode() == STATUS_SESSION_EXPIRED) { //handle sign out
+//            if (ex.getLookAppError().getStatusCode() == STATUS_SESSION_EXPIRED) { //handle sign out
 //                App.getInstance().sendSessionTimeoutIntent();
 //            }
 //
