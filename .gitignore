@@ -6,3 +6,4 @@ gen/
 **/build/
 .idea/
 *.iml
+app/src/main/java/com/lookapp/settings/ServerConstants.java

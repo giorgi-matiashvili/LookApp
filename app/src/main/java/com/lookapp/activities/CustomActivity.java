@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.lookapp.App;
+import com.lookapp.fragments.CustomFragment;
 import com.lookapp.utils.AppLogger;
 
 /**
@@ -35,5 +36,7 @@ public class CustomActivity extends Activity{
     public void unregisterLocalBroadcastReceiver(BroadcastReceiver receiver) {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
     }
+
+
 
 }

@@ -35,4 +35,8 @@ public class LookAppService {
         return lat.execute(ServerConstants.GET_SPOT_LIST_SERVLET, null, new TypeToken<List<Spot>>() {}.getType());
     }
 
+    public byte[] getAvatar(long spotId) throws LookAppException{
+        return lat.getBinaryData(ServerConstants.GET_AVATAR_SERVLET,rf.newGetAvatarImageRequest(spotId));
+    }
+
 }

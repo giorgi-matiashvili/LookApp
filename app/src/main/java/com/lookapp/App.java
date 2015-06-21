@@ -6,16 +6,20 @@ import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.lookapp.bean.Spot;
 import com.lookapp.settings.Settings;
 import com.lookapp.utils.AppLogger;
 import com.lookapp.utils.Language;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class App extends Application {
 
     private static App instance;
     private AppLogger logger;
+    private List<Spot> spotList = new ArrayList<>();
 
     public static App getInstance(){
         return instance;
@@ -25,8 +29,16 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        Settings.setLanguage(Language.KA);
+        Settings.setLanguage(Language.EN);
         logger = AppLogger.getLogger(this.getClass());
+    }
+
+    public List<Spot> getSpotList() {
+        return spotList;
+    }
+
+    public void setSpotList(List<Spot> spotList) {
+        this.spotList = spotList;
     }
 
 
