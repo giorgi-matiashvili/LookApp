@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LookAppTbilisi"
-        android:textColor="#f00"
+        android:textColor="#f50"
         android:textSize="30sp"
         android:gravity="center"
         android:layout_marginBottom="20dp"

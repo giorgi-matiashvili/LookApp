@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="drawer_divider_color">#ffffff</color>
+    <color name="drawer_item_background_color">#979797</color>
+    <color name="spot_item_name_color">#f80</color>
+
+
+
+</resources>

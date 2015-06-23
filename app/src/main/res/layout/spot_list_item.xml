@@ -7,17 +7,19 @@
 
     <ImageView
         android:id="@+id/spot_avatar"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
     <TextView
         android:id="@+id/spot_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
         android:text="ITEM"
-        android:textColor="#f80"
+        android:textColor="@color/spot_item_name_color"
         android:textSize="25dp"
         />
 
