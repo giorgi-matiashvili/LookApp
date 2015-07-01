@@ -5,7 +5,7 @@ package com.lookapp.settings;
  */
 public class ServerConstants {
 
-    public static String SERVER_BASE_URL = "http://192.168.149.25:8080/LookAppServer";
+    public static String SERVER_BASE_URL = "http://192.168.149.122:8080/LookAppServer";
     public static String GET_SPOT_LIST_SERVLET = "SpotListServlet";
     public static String GET_AVATAR_SERVLET = "AvatarServlet";
 
