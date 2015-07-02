@@ -17,7 +17,7 @@ import com.lookapp.utils.AppLogger;
 public class CustomActivity extends Activity{
 
     protected AppLogger logger;
-    protected Application app;
+    protected App app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

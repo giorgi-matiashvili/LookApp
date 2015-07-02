@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <ImageView
+            android:id="@+id/spot_details_cover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cover_default"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spot_details_activity_margin"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginRight="@dimen/spot_details_activity_margin"
+            >
+
+            <TextView
+                android:id="@+id/spot_details_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="დაწესებულების სახელი"
+                android:padding="5dp"
+                android:textSize="@dimen/spot_details_activity_name_text_size"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/spot_details_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="3.9"
+                android:textSize="@dimen/spot_details_activity_name_text_size"
+                android:gravity="center"
+
+                />
+
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/spot_details_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text="descritpsdbfjsabhjfm,bsadkjfbsamndbfmnsabdfmnbasdmfb"
+            android:textColor="#000"
+            android:padding="8dp"
+            android:textSize="@dimen/spot_details_activity_text_size"
+            android:layout_margin="@dimen/spot_details_activity_margin"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="მისამართი:"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginBottom="3dp"
+            android:textSize="@dimen/spot_details_activity_head_text_size"
+            />
+
+        <TextView
+            android:id="@+id/spot_details_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="თბილსისი ისტორიული ცენტრი"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginRight="@dimen/spot_details_activity_margin"
+            android:textSize="@dimen/spot_details_activity_text_size"
+            />
+
+        <TextView
+            android:layout_marginTop="@dimen/spot_details_activity_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="საკონტაქტო ინფორმაცია:"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginBottom="3dp"
+            android:textSize="@dimen/spot_details_activity_head_text_size"
+            />
+
+        <TextView
+            android:id="@+id/spot_details_contact_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="თბილსისი ისტორიული ცენტრი"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginRight="@dimen/spot_details_activity_margin"
+            android:textSize="@dimen/spot_details_activity_text_size"
+            />
+
+        <LinearLayout
+            android:layout_margin="@dimen/spot_details_activity_margin"
+            android:id="@+id/spot_details_wifi_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wifi"
+                />
+
+            <TextView
+                android:id="@+id/spot_details_wifi_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="მირიანის გული"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/spot_details_activity_head_text_size"
+                android:layout_marginLeft="10dp"
+
+                />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginRight="@dimen/spot_details_activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="არამწეველების ზონა"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/spot_details_activity_head_text_size"
+                android:layout_marginLeft="10dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/spot_details_smoking_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_input_add"
+                android:layout_marginLeft="10dp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ღონისძიება:"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginBottom="3dp"
+            android:textSize="@dimen/spot_details_activity_head_text_size"
+            />
+
+        <TextView
+            android:id="@+id/spot_details_event_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tbilisi Open Air Tbilisi Open Air Tbilisi Open Air Tbilisi Open Air Tbilisi Open Air Tbilisi Open Air"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginRight="@dimen/spot_details_activity_margin"
+            android:textSize="@dimen/spot_details_activity_text_size"
+            />
+
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/spot_details_activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+</ScrollView>

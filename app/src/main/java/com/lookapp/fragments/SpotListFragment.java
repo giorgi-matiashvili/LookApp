@@ -1,5 +1,6 @@
 package com.lookapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 
 import com.lookapp.R;
 import com.lookapp.Tasks.AvatarLookAppTask;
+import com.lookapp.activities.SpotDetailsActivity;
 import com.lookapp.adapters.SpotListAdapter;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
@@ -96,7 +98,9 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Intent i = new Intent(activity, SpotDetailsActivity.class);
+        i.putExtra("spotPosition", position);
+        startActivity(i);
     }
 
     @Override
