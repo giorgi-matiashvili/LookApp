@@ -6,4 +6,5 @@
     <string name="login_register">register</string>
     <string name="register_sms_code_get">Get sms code</string>
     <string name="register">Registation</string>
+    <string name="register_ok">registration was successful</string>
 </resources>

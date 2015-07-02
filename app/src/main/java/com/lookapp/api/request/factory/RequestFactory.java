@@ -5,6 +5,7 @@ import com.lookapp.api.request.GetAvatarImageRequest;
 import com.lookapp.api.request.GetCoverImageRequest;
 import com.lookapp.api.request.GetMenuRequest;
 import com.lookapp.api.request.LoginRequest;
+import com.lookapp.api.request.RegisterRequest;
 import com.lookapp.api.request.RequestWithSessionId;
 import com.lookapp.api.request.SmsCodeRequest;
 
@@ -55,5 +56,9 @@ public class RequestFactory {
 
     public SmsCodeRequest newGetSmsCodeRequest(String number) {
         return new SmsCodeRequest(number);
+    }
+
+    public RegisterRequest newRegisterRequest(String userName, String password, String number) {
+        return new RegisterRequest(userName,password,number);
     }
 }
