@@ -8,9 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.lookapp.R;
-import com.lookapp.Tasks.AvatarDownloadTask;
+import com.lookapp.Tasks.AvatarLookAppTask;
 import com.lookapp.adapters.UnauthorizedDrawerAdapter;
 import com.lookapp.fragments.CustomFragment;
+import com.lookapp.fragments.LoginFragment;
 import com.lookapp.fragments.SpotListFragment;
 
 /**
@@ -21,13 +22,13 @@ public class UnauthorizedActivity extends CustomActivity{
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private CustomFragment[] drawerFragments;
-    private AvatarDownloadTask avatarDownloadTask;
+    private AvatarLookAppTask avatarDownloadTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unauthorized);
-        avatarDownloadTask = new AvatarDownloadTask();
+        avatarDownloadTask = new AvatarLookAppTask();
 
         initDrawerFragments();
         initDrawerLayout();
@@ -37,10 +38,17 @@ public class UnauthorizedActivity extends CustomActivity{
     }
 
     private void initDrawerFragments() {
+
+
         drawerFragments = new CustomFragment[2];
+
+        LoginFragment loginFragment = new LoginFragment();
+        drawerFragments[0] = loginFragment;
+
         SpotListFragment spotListFragment = new SpotListFragment();
         avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
         drawerFragments[1] = spotListFragment;
+
 
 
     }
@@ -61,7 +69,7 @@ public class UnauthorizedActivity extends CustomActivity{
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch (position){
                 case 0:{
-//                    showFragment(new );
+                    showFragment(drawerFragments[0]);
                     break;
                 }
                 case 1:{

@@ -1,19 +1,17 @@
 package com.lookapp.support;
 
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
 
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.utils.AppLogger;
 
-public abstract  class DownloadTask<Result> extends AsyncTask<Void, Void, Result> {
-    private static AppLogger logger = AppLogger.getLogger(DownloadTask.class);
+public abstract  class LookAppTask<Result> extends AsyncTask<Void, Void, Result> {
+    private static AppLogger logger = AppLogger.getLogger(LookAppTask.class);
 
     protected LookAppException exception;
 
-    public DownloadTask() {
+    public LookAppTask() {
     }
 
 

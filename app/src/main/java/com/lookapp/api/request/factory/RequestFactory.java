@@ -6,6 +6,7 @@ import com.lookapp.api.request.GetCoverImageRequest;
 import com.lookapp.api.request.GetMenuRequest;
 import com.lookapp.api.request.LoginRequest;
 import com.lookapp.api.request.RequestWithSessionId;
+import com.lookapp.api.request.SmsCodeRequest;
 
 /**
  * Created by Giorgi on 6/20/2015.
@@ -52,5 +53,7 @@ public class RequestFactory {
     }
 
 
-
+    public SmsCodeRequest newGetSmsCodeRequest(String number) {
+        return new SmsCodeRequest(number);
+    }
 }

@@ -5,7 +5,7 @@ import android.util.Log;
 import com.lookapp.App;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
-import com.lookapp.support.DownloadTask;
+import com.lookapp.support.LookAppTask;
 import com.lookapp.support.LookAppService;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class RequestInvoker {
     private static RequestInvoker instance;
     private static final int DOWNLOAD_TRY_LIMIT = 5;
     private App app;
-    private DownloadTask<List<Spot>> spotListDownloaderTask;
+    private LookAppTask<List<Spot>> spotListDownloaderTask;
     private int downloadCounter = 0;
 
 
@@ -47,7 +47,7 @@ public class RequestInvoker {
     }
 
     private void downloadSpotList() {
-        spotListDownloaderTask = new DownloadTask<List<Spot>>() {
+        spotListDownloaderTask = new LookAppTask<List<Spot>>() {
             @Override
             protected List<Spot> doInBackground(Void... params) {
                 LookAppService las = LookAppService.getInstance();

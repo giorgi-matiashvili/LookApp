@@ -13,6 +13,7 @@ public class Settings {
 
     public static final String APP_LANGUAGE = "APP_LANGUAGE";
     public static final String USERNAME = "USERNAME";
+    public static final String NUMBER_PREFIX = "+995";
 
     //private static AppLogger logger = AppLogger.getLogger(Settings.class);
     private static SharedPreferences prefs = null;

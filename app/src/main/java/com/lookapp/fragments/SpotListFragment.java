@@ -10,14 +10,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.lookapp.App;
 import com.lookapp.R;
-import com.lookapp.Tasks.AvatarDownloadTask;
+import com.lookapp.Tasks.AvatarLookAppTask;
 import com.lookapp.adapters.SpotListAdapter;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
 import com.lookapp.listeners.AvatarDownloadListener;
-import com.lookapp.support.DownloadTask;
+import com.lookapp.support.LookAppTask;
 import com.lookapp.support.LookAppService;
 
 import java.util.List;
@@ -57,7 +56,7 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
     }
 
     private void downloadSpotList(final boolean showRefresh) {
-        DownloadTask<List<Spot>> task = new DownloadTask<List<Spot>>() {
+        LookAppTask<List<Spot>> task = new LookAppTask<List<Spot>>() {
 
             @Override
             protected void onPreExecute() {
@@ -83,7 +82,7 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
                     app.setSpotList(spots);
                     adapter.setSpotList(spots);
                     adapter.notifyDataSetChanged();
-                    AvatarDownloadTask avatarDownloadTask = new AvatarDownloadTask();
+                    AvatarLookAppTask avatarDownloadTask = new AvatarLookAppTask();
                     avatarDownloadTask.addAvatarDownloadListener(SpotListFragment.this);
                     avatarDownloadTask.execute();
 

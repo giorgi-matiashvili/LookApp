@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello LookApp!</string>
     <string name="action_settings">Settings</string>
+    <string name="login_register">register</string>
+    <string name="register_sms_code_get">Get sms code</string>
+    <string name="register">Registation</string>
 </resources>

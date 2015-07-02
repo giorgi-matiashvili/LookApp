@@ -3,6 +3,7 @@ package com.lookapp.support;
 import com.google.gson.reflect.TypeToken;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.api.request.factory.RequestFactory;
+import com.lookapp.bean.SmsCode;
 import com.lookapp.bean.Spot;
 import com.lookapp.settings.ServerConstants;
 
@@ -36,7 +37,10 @@ public class LookAppService {
     }
 
     public byte[] getAvatar(long spotId) throws LookAppException{
-        return lat.getBinaryData(ServerConstants.GET_AVATAR_SERVLET,rf.newGetAvatarImageRequest(spotId));
+        return lat.getBinaryData(ServerConstants.GET_AVATAR_SERVLET, rf.newGetAvatarImageRequest(spotId));
     }
 
+    public SmsCode getSmsCode(String number) throws LookAppException{
+        return lat.execute(ServerConstants.SMS_CODE_SERVLET, rf.newGetSmsCodeRequest(number),SmsCode.class);
+    }
 }

@@ -8,7 +8,7 @@ import com.lookapp.App;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
 import com.lookapp.listeners.AvatarDownloadListener;
-import com.lookapp.support.DownloadTask;
+import com.lookapp.support.LookAppTask;
 import com.lookapp.support.LookAppService;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by Giorgi on 6/21/2015.
  */
-public class AvatarDownloadTask extends DownloadTask<Void>{
+public class AvatarLookAppTask extends LookAppTask<Void> {
 
     private List<AvatarDownloadListener> listeners = new ArrayList<AvatarDownloadListener>();
 
