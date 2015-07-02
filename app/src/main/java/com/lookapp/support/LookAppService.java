@@ -3,6 +3,7 @@ package com.lookapp.support;
 import com.google.gson.reflect.TypeToken;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.api.request.factory.RequestFactory;
+import com.lookapp.bean.LoginResponse;
 import com.lookapp.bean.SmsCode;
 import com.lookapp.bean.Spot;
 import com.lookapp.settings.ServerConstants;
@@ -46,5 +47,13 @@ public class LookAppService {
 
     public void register(String userName, String password, String number) throws LookAppException{
         lat.execute(ServerConstants.REGISTER_SERVLET,rf.newRegisterRequest(userName,password,number),Void.class);
+    }
+
+    public LoginResponse login(String userName, String password) throws LookAppException{
+        return lat.execute(ServerConstants.LOGIN_SERVLET,rf.newLoginRequest(userName, password),LoginResponse.class);
+    }
+
+    public List<Long> getFavouriteSpotIds(String sessionId) throws LookAppException{
+        return lat.execute(ServerConstants.FAVOURITE_IDS_SERVLET, rf.newFavouriteIdsRequest(sessionId), new TypeToken<List<Long>>(){}.getType());
     }
 }

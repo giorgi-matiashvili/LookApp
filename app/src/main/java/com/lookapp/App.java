@@ -20,6 +20,8 @@ public class App extends Application {
     private static App instance;
     private AppLogger logger;
     private List<Spot> spotList = new ArrayList<>();
+    private String sessionId;
+    private List<Spot> favouritesList = new ArrayList<>();
 
     public static App getInstance(){
         return instance;
@@ -67,5 +69,21 @@ public class App extends Application {
         Configuration config = new Configuration();
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public List<Spot> getFavouritesList() {
+        return favouritesList;
+    }
+
+    public void setFavouritesList(List<Spot> favouritesList) {
+        this.favouritesList = favouritesList;
     }
 }

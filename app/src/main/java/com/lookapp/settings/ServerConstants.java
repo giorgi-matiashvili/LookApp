@@ -12,5 +12,7 @@ public class ServerConstants {
     public static String GET_AVATAR_SERVLET = "AvatarServlet";
     public static final String SMS_CODE_SERVLET = "SmsCodeServlet";
     public static final String REGISTER_SERVLET = "RegisterServlet";
+    public static final String LOGIN_SERVLET = "LoginServlet";
+    public static final String FAVOURITE_IDS_SERVLET = "FavouriteIdsServlet";
 
 }

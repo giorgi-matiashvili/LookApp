@@ -1,6 +1,7 @@
 package com.lookapp.api.request.factory;
 
 import com.lookapp.api.request.ChangePasswordRequest;
+import com.lookapp.api.request.FavouriteIdsRequest;
 import com.lookapp.api.request.GetAvatarImageRequest;
 import com.lookapp.api.request.GetCoverImageRequest;
 import com.lookapp.api.request.GetMenuRequest;
@@ -60,5 +61,9 @@ public class RequestFactory {
 
     public RegisterRequest newRegisterRequest(String userName, String password, String number) {
         return new RegisterRequest(userName,password,number);
+    }
+
+    public FavouriteIdsRequest newFavouriteIdsRequest(String sessionId) {
+        return new FavouriteIdsRequest(sessionId);
     }
 }
