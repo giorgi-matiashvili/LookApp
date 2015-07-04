@@ -4,4 +4,6 @@
     <string name="register_sms_code_get">sms კოდის მიღება</string>
     <string name="register">რეგისტრაცია</string>
     <string name="register_ok">რეგისტრაცია დასრულდა წარმატებით</string>
+    <string name="favourites_delete_success">წაიშალა ფავორიტებიდან</string>
+    <string name="favourites_delete_error"> ფავორიტებიდან წაშლისას მოხდა შეცდომა</string>
 </resources>

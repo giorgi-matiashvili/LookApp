@@ -1,6 +1,7 @@
 package com.lookapp.api.request.factory;
 
 import com.lookapp.api.request.ChangePasswordRequest;
+import com.lookapp.api.request.FavouriteDeleteRequest;
 import com.lookapp.api.request.FavouriteIdsRequest;
 import com.lookapp.api.request.GetAvatarImageRequest;
 import com.lookapp.api.request.GetCoverImageRequest;
@@ -65,5 +66,10 @@ public class RequestFactory {
 
     public FavouriteIdsRequest newFavouriteIdsRequest(String sessionId) {
         return new FavouriteIdsRequest(sessionId);
+    }
+
+    public FavouriteDeleteRequest newFavouriteDeleteRequest(String sessionId, long spotId) {
+
+        return new FavouriteDeleteRequest(sessionId,spotId);
     }
 }

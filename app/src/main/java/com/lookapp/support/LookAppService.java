@@ -56,4 +56,8 @@ public class LookAppService {
     public List<Long> getFavouriteSpotIds(String sessionId) throws LookAppException{
         return lat.execute(ServerConstants.FAVOURITE_IDS_SERVLET, rf.newFavouriteIdsRequest(sessionId), new TypeToken<List<Long>>(){}.getType());
     }
+
+    public void deleteFavourite(String sessionId, long spotId) throws LookAppException{
+        lat.execute(ServerConstants.FAVOURITE_DELETE_SERVLET,rf.newFavouriteDeleteRequest(sessionId,spotId),Void.class);
+    }
 }

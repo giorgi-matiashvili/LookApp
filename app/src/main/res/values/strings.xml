@@ -7,4 +7,6 @@
     <string name="register_sms_code_get">Get sms code</string>
     <string name="register">Registation</string>
     <string name="register_ok">registration was successful</string>
+    <string name="favourites_delete_success"> removed from favourites</string>
+    <string name="favourites_delete_error">was not removed from favourites</string>
 </resources>
