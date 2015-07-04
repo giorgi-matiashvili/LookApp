@@ -22,6 +22,7 @@ public class App extends Application {
     private List<Spot> spotList = new ArrayList<>();
     private String sessionId;
     private List<Spot> favouritesList = new ArrayList<>();
+    private boolean isLogedIn;
 
     public static App getInstance(){
         return instance;
@@ -85,5 +86,13 @@ public class App extends Application {
 
     public void setFavouritesList(List<Spot> favouritesList) {
         this.favouritesList = favouritesList;
+    }
+
+    public void setIsLogedIn(boolean isLogedIn) {
+        this.isLogedIn = isLogedIn;
+    }
+
+    public boolean isLogedIn() {
+        return isLogedIn;
     }
 }

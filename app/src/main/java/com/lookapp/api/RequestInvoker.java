@@ -5,9 +5,11 @@ import android.util.Log;
 import com.lookapp.App;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
+import com.lookapp.listeners.LoginDataDownloadListener;
 import com.lookapp.support.LookAppTask;
 import com.lookapp.support.LookAppService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -76,4 +78,44 @@ public class RequestInvoker {
     }
 
 
+    public void onLogin(final LoginDataDownloadListener listener) {
+
+        LookAppTask<Void> loginDataDownloadTask = new LookAppTask<Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                LookAppService las = LookAppService.getInstance();
+                try {
+                    List<Long> favouriteIds = las.getFavouriteSpotIds(app.getSessionId());
+                    List<Spot> spots = new ArrayList<Spot>();
+
+                    for(Spot s : app.getSpotList()){
+                        for(long id : favouriteIds){
+                            if(s.getSpotId() == id){
+                                spots.add(s);
+                            }
+                        }
+                    }
+
+                    app.setFavouritesList(spots);
+
+
+                } catch (LookAppException e) {
+                    exception = e;
+                }
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                if(exception == null){
+                    listener.onLoginDataDownloaded(true);
+                }else {
+                    listener.onLoginDataDownloaded(false);
+                }
+            }
+        };
+        loginDataDownloadTask.execute();
+
+    }
 }
