@@ -23,8 +23,9 @@ public class UnauthorizedDrawerAdapter extends BaseAdapter {
     public UnauthorizedDrawerAdapter(LayoutInflater inflater){
         this.inflater  = inflater;
         drawerObjectList = new ArrayList<DrawerObject>();
-        drawerObjectList.add(new DrawerObject("Login", R.drawable.ic_drawer_home));
-        drawerObjectList.add(new DrawerObject("Spot List", R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.login), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.spot_list), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.choose_language), R.drawable.ic_drawer_home));
     }
 
     @Override

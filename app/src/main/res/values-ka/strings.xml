@@ -6,4 +6,8 @@
     <string name="register_ok">რეგისტრაცია დასრულდა წარმატებით</string>
     <string name="favourites_delete_success">წაიშალა ფავორიტებიდან</string>
     <string name="favourites_delete_error"> ფავორიტებიდან წაშლისას მოხდა შეცდომა</string>
+    <string name="favourites">favourites</string>
+    <string name="spot_list">spot list</string>
+    <string name="save">save</string>
+    <string name="choose_language">choose language</string>
 </resources>
