@@ -8,6 +8,7 @@ import com.lookapp.api.request.GetAvatarImageRequest;
 import com.lookapp.api.request.GetCoverImageRequest;
 import com.lookapp.api.request.GetMenuRequest;
 import com.lookapp.api.request.LoginRequest;
+import com.lookapp.api.request.RatingRequest;
 import com.lookapp.api.request.RegisterRequest;
 import com.lookapp.api.request.RequestWithSessionId;
 import com.lookapp.api.request.SmsCodeRequest;
@@ -76,5 +77,9 @@ public class RequestFactory {
 
     public FavouriteAddRequest newFavouriteAddRequest(String sessionId, long spotId) {
         return new FavouriteAddRequest(sessionId,spotId);
+    }
+
+    public RatingRequest newRatingRequest(String sessionId, long spotId, double rating) {
+        return new RatingRequest(sessionId,spotId,rating);
     }
 }

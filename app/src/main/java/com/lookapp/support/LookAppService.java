@@ -61,6 +61,11 @@ public class LookAppService {
         lat.execute(ServerConstants.FAVOURITE_DELETE_SERVLET,rf.newFavouriteDeleteRequest(sessionId,spotId),Void.class);
     }
     public void addFavourite(String sessionId, long spotId) throws LookAppException{
-        lat.execute(ServerConstants.FAVOURITE_ADD_SERVLET,rf.newFavouriteAddRequest(sessionId,spotId),Void.class);
+        lat.execute(ServerConstants.FAVOURITE_ADD_SERVLET,rf.newFavouriteAddRequest(sessionId, spotId),Void.class);
     }
+
+    public void addRating(String sessionId, long spotId, double rating) throws LookAppException{
+        lat.execute(ServerConstants.RATING_SERVLET, rf.newRatingRequest(sessionId, spotId,rating),Void.class);
+    }
+
 }

@@ -16,5 +16,6 @@ public class ServerConstants {
     public static final String FAVOURITE_IDS_SERVLET = "FavouriteIdsServlet";
     public static final String FAVOURITE_DELETE_SERVLET = "FavouriteDeleteServlet";
     public static final String FAVOURITE_ADD_SERVLET = "FavouriteAddServlet";
+    public static final String RATING_SERVLET = "RatingServlet";
 
 }
