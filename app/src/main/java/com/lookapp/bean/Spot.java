@@ -21,7 +21,7 @@ public class Spot {
     @Expose private double latitude;
     @Expose private String type;
     @Expose private String wifiPassword;
-    private byte[] avatar;
+    @Expose private byte[] avatar;
 
     public Spot() {
 

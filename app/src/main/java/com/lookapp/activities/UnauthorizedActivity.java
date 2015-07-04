@@ -11,6 +11,7 @@ import com.lookapp.R;
 import com.lookapp.Tasks.AvatarLookAppTask;
 import com.lookapp.adapters.UnauthorizedDrawerAdapter;
 import com.lookapp.fragments.CustomFragment;
+import com.lookapp.fragments.FavouritesFragment;
 import com.lookapp.fragments.LanguageChangeFragment;
 import com.lookapp.fragments.LoginFragment;
 import com.lookapp.fragments.SpotListFragment;
@@ -33,7 +34,7 @@ public class UnauthorizedActivity extends CustomActivity{
 
         initDrawerFragments();
         initDrawerLayout();
-        showFragment(drawerFragments[1]);
+        showFragment(drawerFragments[2]);
         avatarDownloadTask.execute();
 
     }
@@ -41,18 +42,22 @@ public class UnauthorizedActivity extends CustomActivity{
     private void initDrawerFragments() {
 
 
-        drawerFragments = new CustomFragment[3];
+        drawerFragments = new CustomFragment[4];
+
 
         LoginFragment loginFragment = new LoginFragment();
         drawerFragments[0] = loginFragment;
 
+        FavouritesFragment favouritesFragment = new FavouritesFragment();
+        drawerFragments[1] = favouritesFragment;
+
         SpotListFragment spotListFragment = new SpotListFragment();
         avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
-        drawerFragments[1] = spotListFragment;
+        drawerFragments[2] = spotListFragment;
 
         LanguageChangeFragment languageChangeFragment = new LanguageChangeFragment();
 
-        drawerFragments[2] = languageChangeFragment;
+        drawerFragments[3] = languageChangeFragment;
 
 
 
@@ -83,6 +88,10 @@ public class UnauthorizedActivity extends CustomActivity{
                 }
                 case 2:{
                     showFragment(drawerFragments[2]);
+                    break;
+                }
+                case 3:{
+                    showFragment(drawerFragments[3]);
                     break;
                 }
             }

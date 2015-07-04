@@ -18,6 +18,7 @@ import com.lookapp.adapters.SpotListAdapter;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
 import com.lookapp.listeners.AvatarDownloadListener;
+import com.lookapp.settings.Settings;
 import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
 import com.lookapp.swipelistview.SwipeDismissListViewTouchListener;
@@ -57,8 +58,8 @@ public class FavouritesFragment extends CustomFragment implements  ListView.OnIt
 
                 for (int pos : reverseSortedPositions) {
                     try {
-                        deleteFavourite(app.getSessionId(), adapter.getItem(pos).getSpotId());
-                        app.getFavouritesList().remove(pos);
+                        Spot s = app.getFavouritesList().remove(pos);
+                        deleteFavourite(app.getSessionId(), s.getSpotId());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -107,8 +108,16 @@ public class FavouritesFragment extends CustomFragment implements  ListView.OnIt
 
             }
         };
-        deleteFavouriteTask.execute();
+        if(app.isLoggedIn()){
+            deleteFavouriteTask.execute();
+        }else {
+            Settings.setFavouritesList();
+            downloadFavouritesList(false);
+        }
+
     }
+
+
 
     private void createSwipeRefresh(View layout) {
         swipeRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.spot_list_swipe_refresh);
@@ -166,7 +175,16 @@ public class FavouritesFragment extends CustomFragment implements  ListView.OnIt
             }
         };
 
-        task.execute();
+
+        if(app.isLoggedIn()){
+            task.execute();
+        }else {
+            app.setFavouritesList(Settings.getFavouritesList());
+            adapter.setSpotList(Settings.getFavouritesList());
+            adapter.notifyDataSetChanged();
+            swipeRefreshLayout.setRefreshing(false);
+        }
+
     }
 
 
