@@ -41,6 +41,10 @@ public class LookAppService {
         return lat.getBinaryData(ServerConstants.GET_AVATAR_SERVLET, rf.newGetAvatarImageRequest(spotId));
     }
 
+    public byte[] getCoverImage(long spotId) throws LookAppException{
+        return lat.getBinaryData(ServerConstants.GET_COVER_IMAGE_SERVLET, rf.newGetCoverImageRequest(spotId));
+    }
+
     public SmsCode getSmsCode(String number) throws LookAppException{
         return lat.execute(ServerConstants.SMS_CODE_SERVLET, rf.newGetSmsCodeRequest(number), SmsCode.class);
     }

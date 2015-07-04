@@ -6,7 +6,6 @@ package com.lookapp.settings;
 public class ServerConstants {
 
 
-
     public static String SERVER_BASE_URL = "http://192.168.56.1:8081/LookAppServer";
     public static String GET_SPOT_LIST_SERVLET = "SpotListServlet";
     public static String GET_AVATAR_SERVLET = "AvatarServlet";
@@ -17,5 +16,6 @@ public class ServerConstants {
     public static final String FAVOURITE_DELETE_SERVLET = "FavouriteDeleteServlet";
     public static final String FAVOURITE_ADD_SERVLET = "FavouriteAddServlet";
     public static final String RATING_SERVLET = "RatingServlet";
+    public static final String GET_COVER_IMAGE_SERVLET = "CoverImageServlet";
 
 }

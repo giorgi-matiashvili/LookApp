@@ -1,6 +1,9 @@
 package com.lookapp.activities;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +17,7 @@ import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
 
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by giorgi-matiashvili on 7/2/2015.
@@ -21,25 +25,38 @@ import java.util.Collections;
 public class SpotDetailsActivity extends CustomActivity implements View.OnClickListener{
 
     private Spot spot;
+    private ImageView cover;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot_details);
         int pos = (int) getIntent().getExtras().get("spotPosition");
+        cover = (ImageView) findViewById(R.id.spot_details_cover);
         spot = app.getSpotList().get(pos);
         fillData();
         downloadCover();
     }
 
     private void downloadCover() {
-        LookAppTask<byte[]> task = new LookAppTask<byte[]>() {
+        LookAppTask<Bitmap> task = new LookAppTask<Bitmap>() {
             @Override
-            protected byte[] doInBackground(Void... params) {
+            protected Bitmap doInBackground(Void... params) {
                 LookAppService las = LookAppService.getInstance();
-//                las.get
-
+                try {
+                    byte[] bytes = Base64.decode(las.getCoverImage(spot.getSpotId()), Base64.DEFAULT);
+                    return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                } catch (LookAppException e) {
+                    exception = e;
+                }
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bytes) {
+                if(bytes != null){
+                    cover.setImageBitmap(bytes);
+                }
             }
         };
         task.execute();
@@ -111,10 +128,19 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
             app.getFavouritesList().add(spot);
             ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_on);
         }else{
-            app.getFavouritesList().remove(spot);
+            removeSpot(app.getFavouritesList(), spot);
             ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_off);
         }
         Settings.setFavouritesList();
+    }
+
+    private void removeSpot(List<Spot> list, Spot spot) {
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getSpotId() == spot.getSpotId()){
+                list.remove(i);
+                break;
+            }
+        }
     }
 
     private void addToFavorites(final String sessionId, final long spotId, final boolean add) {
@@ -149,7 +175,7 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
                         app.getFavouritesList().add(spot);
                     }else{
                         ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_off);
-                        app.getFavouritesList().remove(spot);
+                        removeSpot(app.getFavouritesList(), spot);
                     }
                 }
             }
