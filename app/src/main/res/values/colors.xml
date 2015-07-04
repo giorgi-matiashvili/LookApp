@@ -4,6 +4,9 @@
     <color name="drawer_divider_color">#ffffff</color>
     <color name="drawer_item_background_color">#979797</color>
     <color name="spot_item_name_color">#f80</color>
+    
+    <color name="spot_details_header_text_color">#ffff7f5d</color>
+    <color name="spot_details_text_color">#ffff9c5c</color>
 
 
 

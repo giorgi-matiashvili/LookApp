@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@android:color/white"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -24,18 +25,27 @@
             android:layout_marginTop="@dimen/spot_details_activity_margin"
             android:layout_marginLeft="@dimen/spot_details_activity_margin"
             android:layout_marginRight="@dimen/spot_details_activity_margin"
+            android:gravity="center_vertical"
             >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_rating_off"
+                />
+
 
             <TextView
                 android:id="@+id/spot_details_name"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="დაწესებულების სახელი"
+                android:text="დაწესებულების სახელიდაწესებულების სახელი"
                 android:padding="5dp"
                 android:textSize="@dimen/spot_details_activity_name_text_size"
                 android:textStyle="bold"
-                android:gravity="center_vertical"
+                android:gravity="center"
+
                 />
 
             <TextView
@@ -54,9 +64,9 @@
             android:id="@+id/spot_details_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@drawable/rectangle_text_shape"
             android:text="descritpsdbfjsabhjfm,bsadkjfbsamndbfmnsabdfmnbasdmfb"
-            android:textColor="#000"
+            android:textColor="@color/spot_details_text_color"
             android:padding="8dp"
             android:textSize="@dimen/spot_details_activity_text_size"
             android:layout_margin="@dimen/spot_details_activity_margin"
@@ -69,6 +79,7 @@
             android:layout_marginLeft="@dimen/spot_details_activity_margin"
             android:layout_marginBottom="3dp"
             android:textSize="@dimen/spot_details_activity_head_text_size"
+            android:textColor="@color/spot_details_header_text_color"
             />
 
         <TextView
@@ -79,6 +90,7 @@
             android:layout_marginLeft="@dimen/spot_details_activity_margin"
             android:layout_marginRight="@dimen/spot_details_activity_margin"
             android:textSize="@dimen/spot_details_activity_text_size"
+            android:textColor="@color/spot_details_text_color"
             />
 
         <TextView
@@ -88,6 +100,7 @@
             android:text="საკონტაქტო ინფორმაცია:"
             android:layout_marginLeft="@dimen/spot_details_activity_margin"
             android:layout_marginBottom="3dp"
+            android:textColor="@color/spot_details_header_text_color"
             android:textSize="@dimen/spot_details_activity_head_text_size"
             />
 
@@ -99,6 +112,7 @@
             android:layout_marginLeft="@dimen/spot_details_activity_margin"
             android:layout_marginRight="@dimen/spot_details_activity_margin"
             android:textSize="@dimen/spot_details_activity_text_size"
+            android:textColor="@color/spot_details_text_color"
             />
 
         <LinearLayout
@@ -122,7 +136,8 @@
                 android:text="მირიანის გული"
                 android:layout_gravity="center_vertical"
                 android:textSize="@dimen/spot_details_activity_head_text_size"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="@dimen/spot_details_activity_margin"
+                android:textColor="@color/spot_details_text_color"
 
                 />
 
@@ -143,16 +158,15 @@
                 android:text="არამწეველების ზონა"
                 android:layout_gravity="center_vertical"
                 android:textSize="@dimen/spot_details_activity_head_text_size"
-                android:layout_marginLeft="10dp"
-
+                android:textColor="@color/spot_details_header_text_color"
                 />
 
             <ImageView
                 android:id="@+id/spot_details_smoking_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_input_add"
-                android:layout_marginLeft="10dp"
+                android:src="@drawable/cross"
+                android:layout_marginLeft="@dimen/spot_details_activity_margin"
                 />
 
         </LinearLayout>
@@ -162,8 +176,10 @@
             android:layout_height="wrap_content"
             android:text="ღონისძიება:"
             android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginTop="@dimen/spot_details_activity_margin"
             android:layout_marginBottom="3dp"
             android:textSize="@dimen/spot_details_activity_head_text_size"
+            android:textColor="@color/spot_details_header_text_color"
             />
 
         <TextView
@@ -174,28 +190,51 @@
             android:layout_marginLeft="@dimen/spot_details_activity_margin"
             android:layout_marginRight="@dimen/spot_details_activity_margin"
             android:textSize="@dimen/spot_details_activity_text_size"
+            android:textColor="@color/spot_details_text_color"
+            android:background="@drawable/rectangle_text_shape"
+            android:padding="8dp"
             />
 
         <LinearLayout
-            android:layout_gravity="bottom"
-            android:layout_margin="@dimen/spot_details_activity_margin"
-            android:layout_width="match_parent"
+            android:id="@+id/spot_details_menu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="@dimen/spot_details_activity_margin"
             >
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content" />
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu"
+                />
 
-            </LinearLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#05b"
+                android:text="Menu"
+                android:textStyle="italic"
+                android:layout_marginLeft="@dimen/spot_details_activity_margin"
+                android:gravity="center"
+                android:textSize="@dimen/spot_details_activity_name_text_size"
+                />
 
         </LinearLayout>
+
+
+        <Button
+            android:id="@+id/spot_details_reserve_btn"
+            android:layout_marginLeft="@dimen/spot_details_activity_margin"
+            android:layout_marginRight="@dimen/spot_details_activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="დაჯავშნა"
+            android:textSize="@dimen/spot_details_activity_name_text_size"
+            android:background="@color/spot_details_text_color"
+            android:textColor="@android:color/white"
+            />
+
+    </LinearLayout>
 
 </ScrollView>
