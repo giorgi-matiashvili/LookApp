@@ -9,4 +9,10 @@
     <string name="register_ok">registration was successful</string>
     <string name="favourites_delete_success"> removed from favourites</string>
     <string name="favourites_delete_error">was not removed from favourites</string>
+    <string name="favourites">favourites</string>
+    <string name="spot_list">spot list</string>
+    <string name="logout">logout</string>
+    <string name="login">login</string>
+    <string name="save">save</string>
+    <string name="choose_language">choose language</string>
 </resources>

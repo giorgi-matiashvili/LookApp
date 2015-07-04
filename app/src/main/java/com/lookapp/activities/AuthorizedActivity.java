@@ -2,7 +2,6 @@ package com.lookapp.activities;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,10 +10,8 @@ import android.widget.ListView;
 import com.lookapp.R;
 import com.lookapp.Tasks.AvatarLookAppTask;
 import com.lookapp.adapters.AuthorizedDrawerAdapter;
-import com.lookapp.adapters.UnauthorizedDrawerAdapter;
 import com.lookapp.fragments.CustomFragment;
 import com.lookapp.fragments.FavouritesFragment;
-import com.lookapp.fragments.LoginFragment;
 import com.lookapp.fragments.SpotListFragment;
 
 /**
@@ -40,6 +37,11 @@ public class AuthorizedActivity extends CustomActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
     private void initDrawerFragments() {
 
 
@@ -59,12 +61,12 @@ public class AuthorizedActivity extends CustomActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         mDrawerList.setAdapter(new AuthorizedDrawerAdapter(getLayoutInflater()));
-        mDrawerList.setOnItemClickListener(new AnauthorizedDrawerClickListener());
+        mDrawerList.setOnItemClickListener(new AuthorizedDrawerClickListener());
 
     }
 
     /* The click listner for ListView in the navigation drawer */
-    private class AnauthorizedDrawerClickListener implements ListView.OnItemClickListener {
+    private class AuthorizedDrawerClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch (position){
@@ -74,6 +76,10 @@ public class AuthorizedActivity extends CustomActivity {
                 }
                 case 1:{
                     showFragment(drawerFragments[1]);
+                    break;
+                }
+                case 2:{
+                    finish();
                     break;
                 }
             }
