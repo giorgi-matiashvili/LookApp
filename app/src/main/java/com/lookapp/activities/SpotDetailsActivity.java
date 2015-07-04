@@ -4,9 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lookapp.R;
+import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
+import com.lookapp.settings.Settings;
+import com.lookapp.support.LookAppService;
+import com.lookapp.support.LookAppTask;
+
+import java.util.Collections;
 
 /**
  * Created by giorgi-matiashvili on 7/2/2015.
@@ -22,6 +29,20 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
         int pos = (int) getIntent().getExtras().get("spotPosition");
         spot = app.getSpotList().get(pos);
         fillData();
+        downloadCover();
+    }
+
+    private void downloadCover() {
+        LookAppTask<byte[]> task = new LookAppTask<byte[]>() {
+            @Override
+            protected byte[] doInBackground(Void... params) {
+                LookAppService las = LookAppService.getInstance();
+//                las.get
+
+                return null;
+            }
+        };
+        task.execute();
     }
 
     private void fillData() {
@@ -44,7 +65,24 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
             ((ImageView)findViewById(R.id.spot_details_smoking_image)).setImageResource(R.drawable.check);
         }
 
-//        if()
+        if(isInFavourites(spot)){
+            ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_on);
+        }
+        findViewById(R.id.spot_details_favorite_icon).setOnClickListener(this);
+
+        logger.d("favourites current spot " + spot.getSpotId());
+        for (Spot s : app.getFavouritesList()){
+            logger.d("favourites List spot " + s.getSpotId());
+        }
+
+    }
+
+    private boolean isInFavourites(Spot spot) {
+        for(Spot s : app.getFavouritesList()){
+            if(s.getSpotId() == spot.getSpotId())
+                return true;
+        }
+        return false;
     }
 
     @Override
@@ -58,6 +96,66 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
             //TODO: open menu activity
         }else if(id == R.id.spot_details_reserve_btn){
             //TODO: do reserve
+        }else if(id == R.id.spot_details_favorite_icon){
+            if(app.isLoggedIn()){
+                addToFavorites(app.getSessionId(), spot.getSpotId(), !isInFavourites(spot));
+            }else{
+                addToSharedPreferences(!isInFavourites(spot));
+            }
+
         }
+    }
+
+    private void addToSharedPreferences(boolean add) {
+        if (add){
+            app.getFavouritesList().add(spot);
+            ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_on);
+        }else{
+            app.getFavouritesList().remove(spot);
+            ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_off);
+        }
+        Settings.setFavouritesList();
+    }
+
+    private void addToFavorites(final String sessionId, final long spotId, final boolean add) {
+        LookAppTask<Void> task = new LookAppTask<Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                LookAppService las = LookAppService.getInstance();
+                try {
+                    if(add){
+                        las.addFavourite(sessionId, spotId);
+                    }else{
+                        las.deleteFavourite(sessionId, spotId);
+                    }
+                } catch (LookAppException e) {
+                    exception = e;
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                if(exception != null){
+                    String text = SpotDetailsActivity.this.getResources().getString(R.string.favourites_delete_error);
+                    if(add){
+                        text = SpotDetailsActivity.this.getResources().getString(R.string.favourite_add_error);
+                    }
+                    Toast.makeText(SpotDetailsActivity.this, text,
+                            Toast.LENGTH_LONG).show();
+                }else {
+                    if(add){
+                        ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_on);
+                        app.getFavouritesList().add(spot);
+                    }else{
+                        ((ImageView)findViewById(R.id.spot_details_favorite_icon)).setImageResource(R.drawable.ic_rating_off);
+                        app.getFavouritesList().remove(spot);
+                    }
+                }
+            }
+        };
+
+
+        task.execute();
     }
 }

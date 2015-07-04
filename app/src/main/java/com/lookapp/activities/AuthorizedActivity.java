@@ -79,7 +79,7 @@ public class AuthorizedActivity extends CustomActivity {
                     break;
                 }
                 case 2:{
-                    app.setIsLogedIn(false);
+                    app.setIsLoggedIn(false);
                     finish();
                     break;
                 }

@@ -29,6 +29,7 @@
             >
 
             <ImageView
+                android:id="@+id/spot_details_favorite_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_rating_off"

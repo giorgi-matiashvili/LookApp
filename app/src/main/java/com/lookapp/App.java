@@ -22,7 +22,7 @@ public class App extends Application {
     private List<Spot> spotList = new ArrayList<>();
     private String sessionId;
     private List<Spot> favouritesList = new ArrayList<>();
-    private boolean isLogedIn;
+    private boolean isLoggedIn;
 
     public static App getInstance(){
         return instance;
@@ -34,6 +34,7 @@ public class App extends Application {
         instance = this;
         Settings.setLanguage(Language.EN);
         logger = AppLogger.getLogger(this.getClass());
+        setFavouritesList(Settings.getFavouritesList());
     }
 
     public List<Spot> getSpotList() {
@@ -85,14 +86,15 @@ public class App extends Application {
     }
 
     public void setFavouritesList(List<Spot> favouritesList) {
+        logger.d("favourites set " + favouritesList.size());
         this.favouritesList = favouritesList;
     }
 
-    public void setIsLogedIn(boolean isLogedIn) {
-        this.isLogedIn = isLogedIn;
+    public void setIsLoggedIn(boolean isLogedIn) {
+        this.isLoggedIn = isLogedIn;
     }
 
-    public boolean isLogedIn() {
-        return isLogedIn;
+    public boolean isLoggedIn() {
+        return isLoggedIn;
     }
 }

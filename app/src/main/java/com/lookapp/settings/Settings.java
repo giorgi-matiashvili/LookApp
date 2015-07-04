@@ -1,10 +1,18 @@
 package com.lookapp.settings;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.lookapp.App;
+import com.lookapp.bean.Spot;
+import com.lookapp.utils.GsonUtils;
 import com.lookapp.utils.Language;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.util.Log;
+
+import java.util.List;
 
 public class Settings {
 
@@ -13,6 +21,7 @@ public class Settings {
 
     public static final String APP_LANGUAGE = "APP_LANGUAGE";
     public static final String USERNAME = "USERNAME";
+    public static final String FAVOURITES = "FAVOURITES";
     public static final String NUMBER_PREFIX = "+995";
 
     //private static AppLogger logger = AppLogger.getLogger(Settings.class);
@@ -106,6 +115,23 @@ public class Settings {
         } else {
             return null;
         }
+    }
+
+    public static void setFavouritesList(){
+        GsonBuilder builder = new GsonBuilder();
+        builder.excludeFieldsWithoutExposeAnnotation();
+        Gson gson = builder.create();
+        Settings.setStringProperty(Settings.FAVOURITES, gson.toJson(App.getInstance().getFavouritesList()));
+        Log.d("favourites", gson.toJson(App.getInstance().getFavouritesList()));
+        Log.d("favourites size", "" + Settings.getFavouritesList().size());
+    }
+
+
+    public static List<Spot> getFavouritesList(){
+        Gson gson = new Gson();
+
+        String list = Settings.getStringProperty(Settings.FAVOURITES, "[]");
+        return gson.fromJson(list, new TypeToken<List<Spot>>() {}.getType());
     }
 
 }

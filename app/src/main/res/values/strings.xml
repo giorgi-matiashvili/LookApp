@@ -17,4 +17,5 @@
     <string name="choose_language">choose language</string>
     <string name="login_error">error loading data</string>
     <string name="loading_data">loading data</string>
+    <string name="favourite_add_error">Error while adding spot to favourites</string>
 </resources>

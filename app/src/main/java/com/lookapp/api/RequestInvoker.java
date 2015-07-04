@@ -63,8 +63,8 @@ public class RequestInvoker {
 
             @Override
             protected void onPostExecute(List<Spot> spots) {
-                Log.d("INVOKER", ""+spots.size());
                 if(exception == null){
+                    Log.d("INVOKER", ""+spots.size());
                     downloadCounter = 0;
                     App.getInstance().setSpotList(spots);
                     app.sendBroadcast(ACTION_STARTUP_COMPLETED);

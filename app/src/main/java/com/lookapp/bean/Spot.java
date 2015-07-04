@@ -1,24 +1,26 @@
 package com.lookapp.bean;
 
 
+import com.google.gson.annotations.Expose;
+
 public class Spot {
 
 
-    private long spotId;
-    private String spotName;
-    private String spotAddress;
-    private String description;
-    private String contactInfo;
-    private String workingHours;
-    private boolean hasWifi;
-    private boolean hasNonSmokerArea;
-    private boolean canReservePlace;
-    private String rating;
-    private String eventDescription;
-    private double longitude;
-    private double latitude;
-    private String type;
-    private String wifiPassword;
+    @Expose private long spotId;
+    @Expose private String spotName;
+    @Expose private String spotAddress;
+    @Expose private String description;
+    @Expose private String contactInfo;
+    @Expose private String workingHours;
+    @Expose private boolean hasWifi;
+    @Expose private boolean hasNonSmokerArea;
+    @Expose private boolean canReservePlace;
+    @Expose private String rating;
+    @Expose private String eventDescription;
+    @Expose private double longitude;
+    @Expose private double latitude;
+    @Expose private String type;
+    @Expose private String wifiPassword;
     private byte[] avatar;
 
     public Spot() {
@@ -201,4 +203,5 @@ public class Spot {
     public void setAvatar(byte[] avatar) {
         this.avatar = avatar;
     }
+
 }

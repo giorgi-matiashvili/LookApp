@@ -96,7 +96,7 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
     public void onLoginDataDownloaded(boolean wasSuccesful) {
 
         if(wasSuccesful){
-            app.setIsLogedIn(true);
+            app.setIsLoggedIn(true);
             Intent intent = new Intent(getActivity(), AuthorizedActivity.class);
             startActivity(intent);
         }else {
