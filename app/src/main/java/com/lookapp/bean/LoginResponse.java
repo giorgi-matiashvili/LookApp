@@ -6,6 +6,7 @@ package com.lookapp.bean;
 public class LoginResponse {
 
     private String sessionId;
+    private long adminSpotId;
 
     public LoginResponse() {
         // TODO Auto-generated constructor stub
@@ -25,5 +26,11 @@ public class LoginResponse {
         this.sessionId = sessionId;
     }
 
+    public long getAdminSpotId() {
+        return adminSpotId;
+    }
 
+    public void setAdminSpotId(long adminSpotId) {
+        this.adminSpotId = adminSpotId;
+    }
 }

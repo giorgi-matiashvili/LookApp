@@ -85,6 +85,7 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
                     progress = ProgressDialog.show(getActivity(), "", getString(R.string.loading_data), true);
                     RequestInvoker.getInstance().onLogin(LoginFragment.this);
                     app.setSessionId(loginResponse.getSessionId());
+                    app.setAdminSpotId(loginResponse.getAdminSpotId());
                 }
             }
         };

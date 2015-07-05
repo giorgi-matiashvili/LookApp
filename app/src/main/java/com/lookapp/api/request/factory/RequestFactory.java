@@ -12,6 +12,7 @@ import com.lookapp.api.request.RatingRequest;
 import com.lookapp.api.request.RegisterRequest;
 import com.lookapp.api.request.RequestWithSessionId;
 import com.lookapp.api.request.SmsCodeRequest;
+import com.lookapp.api.request.SpotForAdminRequest;
 
 /**
  * Created by Giorgi on 6/20/2015.
@@ -81,5 +82,9 @@ public class RequestFactory {
 
     public RatingRequest newRatingRequest(String sessionId, long spotId, double rating) {
         return new RatingRequest(sessionId,spotId,rating);
+    }
+
+    public SpotForAdminRequest newSpotForAdminRequest(long adminSpotId) {
+        return new SpotForAdminRequest(adminSpotId);
     }
 }
