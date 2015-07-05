@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.api.request.factory.RequestFactory;
 import com.lookapp.bean.LoginResponse;
+import com.lookapp.bean.RatingResponse;
 import com.lookapp.bean.SmsCode;
 import com.lookapp.bean.Spot;
 import com.lookapp.settings.ServerConstants;
@@ -68,8 +69,8 @@ public class LookAppService {
         lat.execute(ServerConstants.FAVOURITE_ADD_SERVLET,rf.newFavouriteAddRequest(sessionId, spotId),Void.class);
     }
 
-    public void addRating(String sessionId, long spotId, double rating) throws LookAppException{
-        lat.execute(ServerConstants.RATING_SERVLET, rf.newRatingRequest(sessionId, spotId,rating),Void.class);
+    public RatingResponse addRating(String sessionId, long spotId, double rating) throws LookAppException{
+        return lat.execute(ServerConstants.RATING_SERVLET, rf.newRatingRequest(sessionId, spotId,rating),RatingResponse.class);
     }
 
 }

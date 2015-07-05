@@ -99,7 +99,7 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent i = new Intent(activity, SpotDetailsActivity.class);
-        i.putExtra("spotPosition", position);
+        i.putExtra("spotId", app.getSpotList().get(position).getSpotId());
         startActivity(i);
     }
 

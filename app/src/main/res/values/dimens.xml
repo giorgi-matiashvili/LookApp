@@ -10,5 +10,6 @@
     <dimen name="spot_details_activity_text_size">14dp</dimen>
     <dimen name="spot_details_activity_head_text_size">16dp</dimen>
     <dimen name="spot_details_activity_name_text_size">18dp</dimen>
+    <dimen name="shape_radius">3dp</dimen>
 
 </resources>

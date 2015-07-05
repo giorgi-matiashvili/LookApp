@@ -1,5 +1,7 @@
 package com.lookapp.api.request;
 
+
+@PropertyOrder({"sessionId", "spotId",  "rating"})
 public class RatingRequest {
 	
 	private String sessionId;

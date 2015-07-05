@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_register">რეგისტრაცია</string>
-    <string name="register_sms_code_get">sms კოდის მიღება</string>
+    <string name="register_sms_code_get">ერთჯერადი კოდის მიღება</string>
     <string name="register">რეგისტრაცია</string>
     <string name="register_ok">რეგისტრაცია დასრულდა წარმატებით</string>
     <string name="favourites_delete_success">წაიშალა ფავორიტებიდან</string>
     <string name="favourites_delete_error"> ფავორიტებიდან წაშლისას მოხდა შეცდომა</string>
-    <string name="favourites">favourites</string>
-    <string name="spot_list">spot list</string>
-    <string name="save">save</string>
-    <string name="choose_language">choose language</string>
-    <string name="login_error">error loading data</string>
-    <string name="favourite_add_error">Error while adding spot to favourites</string>
+    <string name="favourites">ფავორიტები</string>
+    <string name="spot_list">ადილების სია</string>
+    <string name="save">შენახვა</string>
+    <string name="choose_language">პარამეტრები</string>
+    <string name="login_error">დაფიქსირდა შეცდომა</string>
+    <string name="favourite_add_error">ფავორიტებში დამატებისას მოხდა შეცდომა</string>
+    <string name="spot_rating_dialog_rate_btn_text">შეფასება</string>
+    <string name="spot_rating_dialog_cancel_btn_text">შენახვა</string>
+    <string name="logout">გამოსვლა</string>
+    <string name="login">ავტორიზაცია</string>
 </resources>

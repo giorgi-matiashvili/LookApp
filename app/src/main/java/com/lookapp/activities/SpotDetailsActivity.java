@@ -1,16 +1,21 @@
 package com.lookapp.activities;
 
+import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lookapp.R;
 import com.lookapp.api.exception.LookAppException;
+import com.lookapp.bean.RatingResponse;
 import com.lookapp.bean.Spot;
 import com.lookapp.settings.Settings;
 import com.lookapp.support.LookAppService;
@@ -26,16 +31,29 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
 
     private Spot spot;
     private ImageView cover;
+    private Dialog ratingDialog;
+    private RatingBar ratingBar;
+    private TextView ratingTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot_details);
-        int pos = (int) getIntent().getExtras().get("spotPosition");
+        long id = (long) getIntent().getExtras().get("spotId");
+        spot = getSpot(id);
         cover = (ImageView) findViewById(R.id.spot_details_cover);
-        spot = app.getSpotList().get(pos);
+
         fillData();
         downloadCover();
+    }
+
+    private Spot getSpot(long id) {
+        for(Spot s : app.getSpotList()){
+            if(s.getSpotId() == id){
+                return s;
+            }
+        }
+        return null;
     }
 
     private void downloadCover() {
@@ -65,9 +83,9 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
     private void fillData() {
         TextView txt;
         ((TextView)findViewById(R.id.spot_details_name)).setText(spot.getSpotName());
-        txt = ((TextView)findViewById(R.id.spot_details_rating));
-        txt.setText(spot.getRating());
-        txt.setOnClickListener(this);
+        ratingTv  = ((TextView)findViewById(R.id.spot_details_rating));
+        ratingTv.setText(spot.getRating());
+        ratingTv.setOnClickListener(this);
         ((TextView)findViewById(R.id.spot_details_description)).setText(spot.getDescription());
         txt = ((TextView)findViewById(R.id.spot_details_address));
         txt.setText(spot.getSpotAddress());
@@ -106,7 +124,9 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.spot_details_rating){
-            //TODO: open rating dialog
+            if(app.isLoggedIn()){
+                showRatingDialog();
+            }
         }else if(id == R.id.spot_details_address){
             //TODO: open map
         }else if(id == R.id.spot_details_menu){
@@ -121,6 +141,64 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
             }
 
         }
+    }
+
+    private void showRatingDialog() {
+        ratingDialog = new Dialog(this);
+        ratingDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        ratingDialog.setCancelable(false);
+        ratingDialog.setContentView(R.layout.rating_dialog_layout);
+        ratingBar = (RatingBar) ratingDialog.findViewById(R.id.spot_details_rating_bar);
+        ratingBar.setRating(Float.parseFloat(spot.getRating()));
+        final TextView currRating = (TextView) ratingDialog.findViewById(R.id.rating_bar_current_rating);
+        currRating.setText(spot.getRating());
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float value, boolean b) {
+                currRating.setText("" + value);
+            }
+        });
+
+        ratingDialog.findViewById(R.id.rating_dialog_btn_cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ratingDialog.dismiss();
+            }
+        });
+
+        ratingDialog.findViewById(R.id.rating_dialog_btn_rate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rateSpot(ratingBar.getRating());
+                ratingDialog.dismiss();
+            }
+
+            private void rateSpot(final float rating) {
+                LookAppTask<RatingResponse> task = new LookAppTask<RatingResponse>() {
+                    @Override
+                    protected RatingResponse doInBackground(Void... params) {
+                        LookAppService las = LookAppService.getInstance();
+                        try {
+                            return las.addRating(app.getSessionId(), spot.getSpotId(), rating);
+                        } catch (LookAppException e) {
+                            exception = e;
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(RatingResponse ratingResponse) {
+                        if(ratingResponse != null){
+                            ratingTv.setText(""+ratingResponse.getNewRating());
+                            spot.setRating(""+ratingResponse.getNewRating());
+                        }
+                    }
+                };
+
+                task.execute();
+            }
+        });
+        ratingDialog.show();
     }
 
     private void addToSharedPreferences(boolean add) {
