@@ -7,6 +7,7 @@ import com.lookapp.bean.LoginResponse;
 import com.lookapp.bean.RatingResponse;
 import com.lookapp.bean.SmsCode;
 import com.lookapp.bean.Spot;
+import com.lookapp.bean.SpotForAdmin;
 import com.lookapp.settings.ServerConstants;
 
 import java.util.List;
@@ -73,4 +74,7 @@ public class LookAppService {
         return lat.execute(ServerConstants.RATING_SERVLET, rf.newRatingRequest(sessionId, spotId,rating),RatingResponse.class);
     }
 
+    public SpotForAdmin getSpotForAdmin(long adminSpotId) throws LookAppException{
+        return lat.execute(ServerConstants.SPOT_FOR_ADMIN_SERVLET,rf.newSpotForAdminRequest(adminSpotId), SpotForAdmin.class);
+    }
 }

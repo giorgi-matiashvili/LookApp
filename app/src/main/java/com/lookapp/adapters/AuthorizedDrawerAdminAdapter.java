@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.lookapp.R;
@@ -13,18 +14,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Giorgi on 6/21/2015.
+ * Created by user on 05/07/2015.
  */
-public class AuthorizedDrawerAdapter extends BaseAdapter {
+public class AuthorizedDrawerAdminAdapter extends BaseAdapter {
 
     private List<DrawerObject> drawerObjectList;
     private LayoutInflater inflater;
 
-    public AuthorizedDrawerAdapter(LayoutInflater inflater){
+    public AuthorizedDrawerAdminAdapter(LayoutInflater inflater){
         this.inflater  = inflater;
         drawerObjectList = new ArrayList<DrawerObject>();
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.favourites), R.drawable.ic_drawer_home));
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.spot_list), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.admin_panel), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.admin_booking), R.drawable.ic_drawer_home));
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.logout), R.drawable.ic_drawer_home));
     }
 
@@ -80,5 +83,4 @@ public class AuthorizedDrawerAdapter extends BaseAdapter {
         ImageView img;
         TextView text;
     }
-
 }

@@ -52,6 +52,7 @@ public class UnauthorizedDrawerAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.drawer_item, parent, false);
             vh.text = (TextView)convertView.findViewById(R.id.drawer_item_text);
             vh.img = (ImageView)convertView.findViewById(R.id.drawer_item_img);
+            convertView.setTag(vh);
         }else{
             vh = (ViewHolder)convertView.getTag();
         }

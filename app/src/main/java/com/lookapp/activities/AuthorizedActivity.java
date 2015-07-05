@@ -10,6 +10,9 @@ import android.widget.ListView;
 import com.lookapp.R;
 import com.lookapp.Tasks.AvatarLookAppTask;
 import com.lookapp.adapters.AuthorizedDrawerAdapter;
+import com.lookapp.adapters.AuthorizedDrawerAdminAdapter;
+import com.lookapp.fragments.AdminBookingFragment;
+import com.lookapp.fragments.AdminFragment;
 import com.lookapp.fragments.CustomFragment;
 import com.lookapp.fragments.FavouritesFragment;
 import com.lookapp.fragments.SpotListFragment;
@@ -45,14 +48,33 @@ public class AuthorizedActivity extends CustomActivity {
     private void initDrawerFragments() {
 
 
-        drawerFragments = new CustomFragment[2];
 
-        FavouritesFragment favouritesFragment = new FavouritesFragment();
-        drawerFragments[0] = favouritesFragment;
+        if(app.getAdminSpotId() < 0){
+            drawerFragments = new CustomFragment[2];
 
-        SpotListFragment spotListFragment = new SpotListFragment();
-        avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
-        drawerFragments[1] = spotListFragment;
+            FavouritesFragment favouritesFragment = new FavouritesFragment();
+            drawerFragments[0] = favouritesFragment;
+
+            SpotListFragment spotListFragment = new SpotListFragment();
+            avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
+            drawerFragments[1] = spotListFragment;
+        }else{
+            drawerFragments = new CustomFragment[4];
+
+            FavouritesFragment favouritesFragment = new FavouritesFragment();
+            drawerFragments[0] = favouritesFragment;
+
+            SpotListFragment spotListFragment = new SpotListFragment();
+            avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
+            drawerFragments[1] = spotListFragment;
+
+            AdminFragment adminFragment = new AdminFragment();
+            drawerFragments[2] = adminFragment;
+
+            AdminBookingFragment adminBookingFragment = new AdminBookingFragment();
+            drawerFragments[3] = adminBookingFragment;
+        }
+
 
     }
 
@@ -60,8 +82,13 @@ public class AuthorizedActivity extends CustomActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        mDrawerList.setAdapter(new AuthorizedDrawerAdapter(getLayoutInflater()));
-        mDrawerList.setOnItemClickListener(new AuthorizedDrawerClickListener());
+        if(app.getAdminSpotId()<0){
+            mDrawerList.setAdapter(new AuthorizedDrawerAdapter(getLayoutInflater()));
+            mDrawerList.setOnItemClickListener(new AuthorizedDrawerClickListener());
+        }else {
+            mDrawerList.setAdapter(new AuthorizedDrawerAdminAdapter(getLayoutInflater()));
+            mDrawerList.setOnItemClickListener(new AuthorizedDrawerAdminClickListener());
+        }
 
     }
 
@@ -79,6 +106,39 @@ public class AuthorizedActivity extends CustomActivity {
                     break;
                 }
                 case 2:{
+                    app.setIsLoggedIn(false);
+                    finish();
+                    break;
+                }
+            }
+
+            mDrawerLayout.closeDrawer(mDrawerList);
+
+        }
+    }
+
+    /* The click listner for ListView in the navigation drawer */
+    private class AuthorizedDrawerAdminClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            switch (position){
+                case 0:{
+                    showFragment(drawerFragments[0]);
+                    break;
+                }
+                case 1:{
+                    showFragment(drawerFragments[1]);
+                    break;
+                }
+                case 2:{
+                    showFragment(drawerFragments[2]);
+                    break;
+                }case 3:{
+                    showFragment(drawerFragments[3]);
+                    break;
+                }
+
+                case 4:{
                     app.setIsLoggedIn(false);
                     finish();
                     break;

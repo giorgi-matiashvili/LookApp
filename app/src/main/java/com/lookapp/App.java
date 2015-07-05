@@ -23,6 +23,7 @@ public class App extends Application {
     private String sessionId;
     private List<Spot> favouritesList = new ArrayList<>();
     private boolean isLoggedIn;
+    private long adminSpotId;
 
     public static App getInstance(){
         return instance;
@@ -96,5 +97,14 @@ public class App extends Application {
 
     public boolean isLoggedIn() {
         return isLoggedIn;
+    }
+
+    public void setAdminSpotId(long adminSpotId) {
+
+        this.adminSpotId = adminSpotId;
+    }
+
+    public long getAdminSpotId() {
+        return adminSpotId;
     }
 }

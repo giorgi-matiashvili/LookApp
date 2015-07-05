@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_register">რეგისტრაცია</string>
-    <string name="register_sms_code_get">ერთჯერადი კოდის მიღება</string>
+    <string name="register_sms_code_get">sms კოდის მიღება</string>
     <string name="register">რეგისტრაცია</string>
     <string name="register_ok">რეგისტრაცია დასრულდა წარმატებით</string>
     <string name="favourites_delete_success">წაიშალა ფავორიტებიდან</string>
@@ -16,4 +16,11 @@
     <string name="spot_rating_dialog_cancel_btn_text">შენახვა</string>
     <string name="logout">გამოსვლა</string>
     <string name="login">ავტორიზაცია</string>
+    <string name="free_sits">free sits</string>
+    <string name="has_non_smoking_area">has non smoking area</string>
+    <string name="can_reserve_place">can reserve place</string>
+    <string name="working_hours">working hours</string>
+    <string name="contact_info">contact number</string>
+    <string name="admin_panel">admin panel</string>
+    <string name="admin_booking">admin booking</string>
 </resources>
