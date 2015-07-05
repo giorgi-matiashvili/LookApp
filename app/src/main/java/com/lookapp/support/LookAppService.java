@@ -77,4 +77,16 @@ public class LookAppService {
     public SpotForAdmin getSpotForAdmin(long adminSpotId) throws LookAppException{
         return lat.execute(ServerConstants.SPOT_FOR_ADMIN_SERVLET,rf.newSpotForAdminRequest(adminSpotId), SpotForAdmin.class);
     }
+
+    public void updateSpotInfo(SpotForAdmin spotForAdmin)throws LookAppException{
+        lat.execute(ServerConstants.UPDATE_SPOT_SERVLET,spotForAdmin,Void.class);
+    }
+
+    public void updateEventInfo(SpotForAdmin spotForAdmin) throws LookAppException{
+        lat.execute(ServerConstants.UPDATE_EVENT_SERVLET,spotForAdmin,Void.class);
+    }
+
+    public void updateFreeSitsInfo(long spotId,String sits) throws LookAppException{
+        lat.execute(ServerConstants.UPDATE_SITS_SERVLET,rf.newUpdateSitsRequest(spotId, sits),Void.class);
+    }
 }

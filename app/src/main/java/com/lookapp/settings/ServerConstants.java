@@ -7,7 +7,7 @@ public class ServerConstants {
 
 
 
-    public static String SERVER_BASE_URL = "http://192.168.56.1:8081/LookAppServer";
+    public static String SERVER_BASE_URL = "http://192.168.56.1:8080/LookAppServer";
     public static String GET_SPOT_LIST_SERVLET = "SpotListServlet";
     public static String GET_AVATAR_SERVLET = "AvatarServlet";
     public static final String SMS_CODE_SERVLET = "SmsCodeServlet";
@@ -19,5 +19,8 @@ public class ServerConstants {
     public static final String RATING_SERVLET = "RatingServlet";
     public static final String GET_COVER_IMAGE_SERVLET = "CoverImageServlet";
     public static final String SPOT_FOR_ADMIN_SERVLET = "SpotForAdminServlet";
+    public static final String UPDATE_SPOT_SERVLET = "UpdateSpotServlet";
+    public static final String UPDATE_EVENT_SERVLET = "UpdateEventServlet";
+    public static final String UPDATE_SITS_SERVLET = "UpdateSitsServlet";
 
 }

@@ -13,6 +13,7 @@ import com.lookapp.api.request.RegisterRequest;
 import com.lookapp.api.request.RequestWithSessionId;
 import com.lookapp.api.request.SmsCodeRequest;
 import com.lookapp.api.request.SpotForAdminRequest;
+import com.lookapp.api.request.UpdateSitsRequest;
 
 /**
  * Created by Giorgi on 6/20/2015.
@@ -86,5 +87,9 @@ public class RequestFactory {
 
     public SpotForAdminRequest newSpotForAdminRequest(long adminSpotId) {
         return new SpotForAdminRequest(adminSpotId);
+    }
+
+    public UpdateSitsRequest newUpdateSitsRequest(long spotId, String sits) {
+        return new UpdateSitsRequest(spotId,sits);
     }
 }

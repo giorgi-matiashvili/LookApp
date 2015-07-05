@@ -129,10 +129,103 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
 
         if(view.getId() == freeSitsSaveBtn.getId()){
 
+            final String text = freeSitsEt.getText().toString();
+
+            LookAppTask<Void> updateSitsInfo = new LookAppTask<Void>() {
+                @Override
+                protected Void doInBackground(Void... params) {
+                    LookAppService las = LookAppService.getInstance();
+                    try {
+                        las.updateFreeSitsInfo(app.getAdminSpotId(),text);
+                    } catch (LookAppException e) {
+                        exception = e;
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    if(exception == null){
+//                        AdminFragment.this.getSpotForAdmin(app.getAdminSpotId());
+                    }
+                }
+            };
+            updateSitsInfo.execute();
+
         }else if(view.getId() == eventSaveBtn.getId()){
+
+            SpotForAdmin spotForAdmin = new SpotForAdmin();
+            spotForAdmin.setSpotId(app.getAdminSpotId());
+            spotForAdmin.setEventDescription(eventEnEt.getText().toString());
+            spotForAdmin.setEventDescriptionKa(eventKaEt.getText().toString());
+
+            updateEventInfo(spotForAdmin);
 
         }else if(view.getId() == otherSaveBtn.getId()){
 
+            SpotForAdmin spotForAdmin = new SpotForAdmin();
+            spotForAdmin.setSpotId(app.getAdminSpotId());
+            spotForAdmin.setSpotName(spotNameEtEn.getText().toString());
+            spotForAdmin.setSpotNameKa(spotNameEtKa.getText().toString());
+            spotForAdmin.setHasWifi(hasWifiCheckBox.isChecked());
+            spotForAdmin.setHasNonSmokerArea(hasNonSmokingAreaCheckBox.isChecked());
+            spotForAdmin.setCanReservePlace(canReservePlaceCheckBox.isChecked());
+
+            spotForAdmin.setWorkingHours(workingHoursStart.getText().toString() + "-" + workingHoursEnd.getText().toString());
+
+            spotForAdmin.setContactInfo(contactNumber.getText().toString());
+            spotForAdmin.setSpotAddress(addressEn.getText().toString());
+            spotForAdmin.setSpotAddressKa(addressKa.getText().toString());
+
+            updateSpotInfo(spotForAdmin);
+
+
         }
+    }
+
+    private void updateEventInfo(final SpotForAdmin spotForAdmin) {
+        LookAppTask<Void> updateSpotInfo = new LookAppTask<Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                LookAppService las = LookAppService.getInstance();
+                try {
+                    las.updateEventInfo(spotForAdmin);
+                } catch (LookAppException e) {
+                    exception = e;
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                if(exception == null){
+                    AdminFragment.this.getSpotForAdmin(app.getAdminSpotId());
+                }
+            }
+        };
+        updateSpotInfo.execute();
+    }
+
+    private void updateSpotInfo(final SpotForAdmin spotForAdmin) {
+        LookAppTask<Void> updateSpotInfo = new LookAppTask<Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                LookAppService las = LookAppService.getInstance();
+                try {
+                    las.updateSpotInfo(spotForAdmin);
+                } catch (LookAppException e) {
+                    exception = e;
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                if(exception == null){
+                    AdminFragment.this.getSpotForAdmin(app.getAdminSpotId());
+                }
+            }
+        };
+        updateSpotInfo.execute();
     }
 }
