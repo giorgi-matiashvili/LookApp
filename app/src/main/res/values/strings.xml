@@ -27,4 +27,11 @@
     <string name="admin_booking">admin booking</string>
     <string name="spot_rating_dialog_rate_btn_text">Rate</string>
     <string name="spot_rating_dialog_cancel_btn_text">Cancel</string>
+    <string name="spot_details_address_text">Address:</string>
+    <string name="spot_details_contact_info_text">Contact info:</string>
+    <string name="spot_details_working_hours_text">Working hours:</string>
+    <string name="spot_details_smoking_zone_text">Non smokers area</string>
+    <string name="spot_details_event_text">Event:</string>
+    <string name="spot_details_menu_text">Menu</string>
+    <string name="spot_details_reserve_text">Reserve</string>
 </resources>

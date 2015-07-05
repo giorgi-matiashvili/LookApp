@@ -105,10 +105,12 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
         }
         findViewById(R.id.spot_details_favorite_icon).setOnClickListener(this);
 
-        logger.d("favourites current spot " + spot.getSpotId());
-        for (Spot s : app.getFavouritesList()){
-            logger.d("favourites List spot " + s.getSpotId());
-        }
+//        logger.d("favourites current spot " + spot.getSpotId());
+//        for (Spot s : app.getFavouritesList()){
+//            logger.d("favourites List spot " + s.getSpotId());
+//        }
+
+        ((TextView) findViewById(R.id.spot_details_working_hours)).setText(spot.getWorkingHours());
 
     }
 

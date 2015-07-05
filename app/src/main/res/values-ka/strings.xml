@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_register">რეგისტრაცია</string>
-    <string name="register_sms_code_get">sms კოდის მიღება</string>
+    <string name="register_sms_code_get">ერთჯერადი კოდი</string>
     <string name="register">რეგისტრაცია</string>
     <string name="register_ok">რეგისტრაცია დასრულდა წარმატებით</string>
     <string name="favourites_delete_success">წაიშალა ფავორიტებიდან</string>
     <string name="favourites_delete_error"> ფავორიტებიდან წაშლისას მოხდა შეცდომა</string>
     <string name="favourites">ფავორიტები</string>
-    <string name="spot_list">ადილების სია</string>
+    <string name="spot_list">ადგილების სია</string>
     <string name="save">შენახვა</string>
     <string name="choose_language">პარამეტრები</string>
     <string name="login_error">დაფიქსირდა შეცდომა</string>
@@ -16,11 +16,18 @@
     <string name="spot_rating_dialog_cancel_btn_text">შენახვა</string>
     <string name="logout">გამოსვლა</string>
     <string name="login">ავტორიზაცია</string>
-    <string name="free_sits">free sits</string>
-    <string name="has_non_smoking_area">has non smoking area</string>
-    <string name="can_reserve_place">can reserve place</string>
-    <string name="working_hours">working hours</string>
-    <string name="contact_info">contact number</string>
-    <string name="admin_panel">admin panel</string>
-    <string name="admin_booking">admin booking</string>
+    <string name="free_sits">თავისუფალი ადგილების რაოდენობა</string>
+    <string name="has_non_smoking_area">არამწეველების ზონა</string>
+    <string name="can_reserve_place">დაჯავშნის შესაძლებლობა</string>
+    <string name="working_hours">სამუშაო საათები</string>
+    <string name="contact_info">საკონტაქტო ნომრები</string>
+    <string name="admin_panel">მართვის პანელი</string>
+    <string name="admin_booking">შეტყობინებები</string>
+    <string name="spot_details_contact_info_text">საკონტაქტო ინფორმაცია:</string>
+    <string name="spot_details_working_hours_text">სამუშაო საათები:</string>
+    <string name="spot_details_address_text">მისამართი:</string>
+    <string name="spot_details_smoking_zone_text">არამწეველების ზონა</string>
+    <string name="spot_details_event_text">ღონისძიება:</string>
+    <string name="spot_details_menu_text">მენიუ</string>
+    <string name="spot_details_reserve_text">დაჯავშნა</string>
 </resources>
