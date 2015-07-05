@@ -32,7 +32,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        Settings.setLanguage(Language.EN);
+//        Settings.setLanguage(Language.EN);
         logger = AppLogger.getLogger(this.getClass());
         setFavouritesList(Settings.getFavouritesList());
     }

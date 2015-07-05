@@ -109,7 +109,7 @@ public class Settings {
     }
 
     public static Language getLanguage() {
-        String lang = Settings.getStringProperty(Settings.APP_LANGUAGE, null);
+        String lang = Settings.getStringProperty(Settings.APP_LANGUAGE, Language.KA.name());
         if (lang != null) {
             return Language.valueOf(lang);
         } else {

@@ -23,9 +23,9 @@ public class AuthorizedDrawerAdapter extends BaseAdapter {
     public AuthorizedDrawerAdapter(LayoutInflater inflater){
         this.inflater  = inflater;
         drawerObjectList = new ArrayList<DrawerObject>();
-        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.favourites), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.favourites), R.drawable.ic_drawer_favourites));
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.spot_list), R.drawable.ic_drawer_home));
-        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.logout), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.logout), R.drawable.ic_drawer_logout));
     }
 
     @Override
