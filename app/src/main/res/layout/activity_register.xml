@@ -1,43 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username" />
 
     <EditText
         android:id="@+id/register_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:layout_marginTop="@dimen/register_label_value_margin"
+        android:background="@drawable/rectangle_text_shape"
+        android:gravity="center"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_activity_vertical_margin"
+        android:text="Password" />
+
     <EditText
         android:id="@+id/register_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:layout_marginTop="@dimen/register_label_value_margin"
+        android:background="@drawable/rectangle_text_shape"
+        android:gravity="center"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_activity_vertical_margin"
+        android:text="Repeat Password" />
+
+    <EditText
+        android:id="@+id/register_password_repeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_label_value_margin"
+        android:background="@drawable/rectangle_text_shape"
+        android:gravity="center"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_activity_vertical_margin"
+        android:text="Phone Number" />
 
     <EditText
         android:id="@+id/register_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:layout_marginTop="@dimen/register_label_value_margin"
+        android:background="@drawable/rectangle_text_shape"
+        android:gravity="center"
+        android:padding="5dp" />
 
-    <Button
-        android:id="@+id/register_sms_code_get_btn"
-        android:text="@string/register_sms_code_get"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/register_sms_code_enter"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/register_sms_code_get_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_selector"
+            android:text="@string/register_sms_code_get"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/register_sms_code_enter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_text_shape"
+            android:gravity="center"
+            android:padding="5dp" />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/register_btn"
-        android:text="@string/register"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_activity_vertical_margin"
+        android:background="@drawable/round_button_selector"
+        android:text="@string/register"
+        android:textColor="@android:color/white" />
 
 
 </LinearLayout>

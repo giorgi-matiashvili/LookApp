@@ -22,5 +22,7 @@
     <dimen name="spot_item_vertical_margin">3dp</dimen>
     <dimen name="spot_item_padding">10dp</dimen>
     <dimen name="spot_item_wifi_icon_margin">15dp</dimen>
+    <dimen name="register_activity_vertical_margin">8dp</dimen>
+    <dimen name="register_label_value_margin">3dp</dimen>
 
 </resources>
