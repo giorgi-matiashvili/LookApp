@@ -1,6 +1,7 @@
 package com.lookapp.activities;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.lookapp.bean.Spot;
 import com.lookapp.settings.Settings;
 import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
+import com.lookapp.utils.UiUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -112,6 +114,8 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
 
         ((TextView) findViewById(R.id.spot_details_working_hours)).setText(spot.getWorkingHours());
 
+        findViewById(R.id.spot_details_reserve_btn).setOnClickListener(this);
+
     }
 
     private boolean isInFavourites(Spot spot) {
@@ -128,12 +132,21 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
         if(id == R.id.spot_details_rating){
             if(app.isLoggedIn()){
                 showRatingDialog();
+            }else{
+                UiUtils.showAlertDialog(getResources().getString(R.string.spot_rating_alert_text), this);
             }
         }else if(id == R.id.spot_details_address){
-            //TODO: open map
+            // TODO map
         }else if(id == R.id.spot_details_menu){
             //TODO: open menu activity
         }else if(id == R.id.spot_details_reserve_btn){
+            if(app.isLoggedIn()){
+                Intent intent = new Intent(this, ReserveActivity.class);
+                intent.putExtra("spotId", spot.getSpotId());
+                startActivity(intent);
+            }else{
+                UiUtils.showAlertDialog(getResources().getString(R.string.spot_reserve_alert_text), this);
+            }
             //TODO: do reserve
         }else if(id == R.id.spot_details_favorite_icon){
             if(app.isLoggedIn()){

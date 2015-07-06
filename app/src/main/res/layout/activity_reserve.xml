@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/spot_details_activity_margin"
+    android:background="@android:color/white"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spot_reserve_num_places"
+        android:textSize="@dimen/spot_reserve_text_size"
+        android:textColor="@color/app_main_color"
+        />
+
+    <EditText
+        android:id="@+id/spot_reserve_number_of_places_et"
+        android:layout_marginTop="@dimen/spot_reserve_label_value_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_text_shape"
+        android:textColor="@color/spot_reserve_text_color"
+        android:hint="შეიყვანეთ რაოდენობა"
+        android:singleLine="true"
+        android:inputType="number"
+        android:textSize="@dimen/spot_reserve_text_size"
+        android:padding="@dimen/spot_reserve_edit_text_padding"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/spot_reserve_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spot_reserve_time"
+        android:textSize="@dimen/spot_reserve_text_size"
+        android:textColor="@color/app_main_color"
+        />
+
+    <EditText
+        android:id="@+id/spot_reserve_visit_time_et"
+        android:layout_marginTop="@dimen/spot_reserve_label_value_margin"
+        android:layout_width="match_parent"
+        android:singleLine="true"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_text_shape"
+        android:textColor="@color/spot_reserve_text_color"
+        android:hint="@string/spot_reserve_time_hint"
+        android:textSize="@dimen/spot_reserve_text_size"
+        android:padding="@dimen/spot_reserve_edit_text_padding"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/spot_reserve_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spot_reserve_comment_label"
+        android:textSize="@dimen/spot_reserve_text_size"
+        android:textColor="@color/app_main_color"
+        />
+
+    <EditText
+        android:id="@+id/spot_reserve_comment_et"
+        android:layout_marginTop="@dimen/spot_reserve_label_value_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_text_shape"
+        android:textColor="@color/spot_reserve_text_color"
+        android:hint="@string/spot_reserve_comment"
+        android:textSize="@dimen/spot_reserve_text_size"
+        android:lines="3"
+        android:gravity="top"
+        android:padding="@dimen/spot_reserve_edit_text_padding"
+        />
+
+
+    <Button
+        android:id="@+id/spot_reserve_reserve_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/spot_details_reserve_text"
+        android:textSize="@dimen/spot_details_activity_name_text_size"
+        android:background="@drawable/round_button_selector"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="20dp"
+        />
+
+
+</LinearLayout>

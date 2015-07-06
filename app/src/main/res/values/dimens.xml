@@ -12,5 +12,9 @@
     <dimen name="spot_details_activity_name_text_size">18dp</dimen>
     <dimen name="shape_radius">3dp</dimen>
     <dimen name="spot_details_text_field_inner_padding">8dp</dimen>
+    <dimen name="spot_reserve_text_size">17sp</dimen>
+    <dimen name="spot_reserve_edit_text_padding">8dp</dimen>
+    <dimen name="spot_reserve_vertical_margin">15dp</dimen>
+    <dimen name="spot_reserve_label_value_margin">5dp</dimen>
 
 </resources>

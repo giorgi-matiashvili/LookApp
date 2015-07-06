@@ -34,4 +34,12 @@
     <string name="spot_details_event_text">Event:</string>
     <string name="spot_details_menu_text">Menu</string>
     <string name="spot_details_reserve_text">Reserve</string>
+    <string name="spot_reserve_alert_text">Please login to reserve place</string>
+    <string name="alert_dialog_ok_btn_text">OK</string>
+    <string name="spot_rating_alert_text">Please login to rate place</string>
+    <string name="spot_reserve_num_places">Number of places:</string>
+    <string name="spot_reserve_time">Visit time:</string>
+    <string name="spot_reserve_time_hint">Hour-minute</string>
+    <string name="spot_reserve_comment">Max 100 symbols</string>
+    <string name="spot_reserve_comment_label">Comment:</string>
 </resources>

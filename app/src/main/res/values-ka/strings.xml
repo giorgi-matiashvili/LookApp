@@ -30,4 +30,12 @@
     <string name="spot_details_event_text">ღონისძიება:</string>
     <string name="spot_details_menu_text">მენიუ</string>
     <string name="spot_details_reserve_text">დაჯავშნა</string>
+    <string name="spot_reserve_alert_text">ადგილის დასაჯავშნად საჭიროა ავტორიზაციის გავლა</string>
+    <string name="alert_dialog_ok_btn_text">გასაგებია</string>
+    <string name="spot_rating_alert_text">ადგილის შესაფასებლად საჭიროა ავტორიზაციის გავლა</string>
+    <string name="spot_reserve_num_places">ადგილების რაოდენობა:</string>
+    <string name="spot_reserve_time">სტუმრობის დრო:</string>
+    <string name="spot_reserve_time_hint">საათი-წუთი</string>
+    <string name="spot_reserve_comment">მაქსიმუმ 100 სიმბოლო</string>
+    <string name="spot_reserve_comment_label">კომენტარი:</string>
 </resources>
