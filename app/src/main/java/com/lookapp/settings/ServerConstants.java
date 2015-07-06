@@ -24,5 +24,7 @@ public class ServerConstants {
     public static final String UPDATE_SITS_SERVLET = "UpdateSitsServlet";
     public static final String RESERVE_PLACE_SERVLET = "ReservePlaceServlet";
     public static final String BOOKING_INFOS_SERVLET = "BookingInfosServlet";
+    public static final String ANSWER_BOOKING_SERVLET = "AnswerBookingServlet";
+    public static final String GET_SITS_SERVLET = "GetSitsServlet";
 
 }

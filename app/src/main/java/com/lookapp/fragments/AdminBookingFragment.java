@@ -1,5 +1,7 @@
 package com.lookapp.fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -11,9 +13,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.lookapp.R;
+import com.lookapp.activities.AnswerBookingActivity;
 import com.lookapp.adapters.BookingListAdapter;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.api.request.ReserveRequest;
+import com.lookapp.bean.SpotForAdmin;
 import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
 
@@ -29,6 +33,7 @@ public class AdminBookingFragment extends CustomFragment implements AdapterView.
     private ListView bookingList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private BookingListAdapter adapter;
+    private SpotForAdmin spotForAdmin;
 
     @Nullable
     @Override
@@ -75,6 +80,7 @@ public class AdminBookingFragment extends CustomFragment implements AdapterView.
 
                 LookAppService las = LookAppService.getInstance();
                 try {
+                    spotForAdmin = las.getSpotForAdmin(app.getAdminSpotId());
                     return las.getBookingInfos(app.getAdminSpotId());
                 } catch (LookAppException e) {
                     exception = e;
@@ -100,6 +106,24 @@ public class AdminBookingFragment extends CustomFragment implements AdapterView.
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+        Intent intent = new Intent(getActivity(), AnswerBookingActivity.class);
+        Bundle b = new Bundle();
 
+        b.putLong("spotId", spotForAdmin.getSpotId());
+        b.putString("spotName", spotForAdmin.getSpotName());
+        b.putString("number", adapter.getItem(i).getNumber());
+
+        intent.putExtras(b);
+        startActivityForResult(intent, 1);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK) {
+                downloadBookingList(true);
+            }
+        }
     }
 }

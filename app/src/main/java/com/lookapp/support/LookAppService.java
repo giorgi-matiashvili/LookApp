@@ -6,6 +6,7 @@ import com.lookapp.api.request.ReserveRequest;
 import com.lookapp.api.request.factory.RequestFactory;
 import com.lookapp.bean.LoginResponse;
 import com.lookapp.bean.RatingResponse;
+import com.lookapp.bean.Sit;
 import com.lookapp.bean.SmsCode;
 import com.lookapp.bean.Spot;
 import com.lookapp.bean.SpotForAdmin;
@@ -95,7 +96,16 @@ public class LookAppService {
         return lat.execute(ServerConstants.BOOKING_INFOS_SERVLET, rf.newBookingInfosRequest(spotId), new TypeToken< List<ReserveRequest>>(){}.getType());
     }
 
-    public Void reserve(String sessionId,String time, String sits, String text,long spotId) throws LookAppException{
-        return lat.execute(ServerConstants.RESERVE_PLACE_SERVLET, rf.newReserveRequest(sessionId,time,sits,text,spotId),Void.class);
+    public void reserve(String sessionId,String time, String sits, String text,long spotId) throws LookAppException{
+        lat.execute(ServerConstants.RESERVE_PLACE_SERVLET, rf.newReserveRequest(sessionId, time, sits, text, spotId),Void.class);
     }
+
+    public void answerBooking(long spotId, String spotName, String text,String number) throws LookAppException{
+        lat.execute(ServerConstants.ANSWER_BOOKING_SERVLET,rf.newAnswerBookingRequest(spotId, spotName, text, number),Void.class);
+    }
+
+    public Sit getSits(long spotId) throws LookAppException{
+        return lat.execute(ServerConstants.GET_SITS_SERVLET,rf.newGetSitsRequest(spotId), Sit.class);
+    }
+
 }

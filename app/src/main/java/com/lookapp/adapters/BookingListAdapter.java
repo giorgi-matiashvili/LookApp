@@ -32,7 +32,7 @@ public class BookingListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public ReserveRequest getItem(int i) {
         return bookingInfos.get(i);
     }
 
