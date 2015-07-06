@@ -15,7 +15,6 @@ import com.lookapp.support.LookAppTask;
  */
 public class AnswerBookingActivity extends CustomActivity implements View.OnClickListener{
     private EditText answerBookingEt;
-    private long spotId;
     private String number;
     private String spotName;
 
@@ -28,7 +27,6 @@ public class AnswerBookingActivity extends CustomActivity implements View.OnClic
         findViewById(R.id.answer_booking_btn).setOnClickListener(this);
 
         Bundle b = getIntent().getExtras();
-        spotId = b.getLong("spotId");
         number = b.getString("number");
         spotName = b.getString("spotName");
 
@@ -42,7 +40,7 @@ public class AnswerBookingActivity extends CustomActivity implements View.OnClic
                 protected Void doInBackground(Void... params) {
                     LookAppService las = LookAppService.getInstance();
                     try {
-                        las.answerBooking(spotId,spotName,answerBookingEt.getText().toString(),number);
+                        las.answerBooking(app.getAdminSpotId(),spotName,answerBookingEt.getText().toString(),number);
                     } catch (LookAppException e) {
                         exception = e;
                     }
@@ -53,7 +51,7 @@ public class AnswerBookingActivity extends CustomActivity implements View.OnClic
                 protected void onPostExecute(Void aVoid) {
                     if(exception==null){
                         Intent returnIntent = new Intent();
-                        setResult(RESULT_CANCELED, returnIntent);
+                        setResult(RESULT_OK, returnIntent);
                         finish();
                     }
                 }

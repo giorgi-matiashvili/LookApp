@@ -108,8 +108,8 @@ public class AdminBookingFragment extends CustomFragment implements AdapterView.
 
         Intent intent = new Intent(getActivity(), AnswerBookingActivity.class);
         Bundle b = new Bundle();
-
-        b.putLong("spotId", spotForAdmin.getSpotId());
+//        logger.d("spotId : "+ app.getAdminSpotId());
+//        b.putLong("spotId", app.getAdminSpotId());
         b.putString("spotName", spotForAdmin.getSpotName());
         b.putString("number", adapter.getItem(i).getNumber());
 
@@ -121,6 +121,7 @@ public class AdminBookingFragment extends CustomFragment implements AdapterView.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
+            logger.d("====================================================");
             if(resultCode == Activity.RESULT_OK) {
                 downloadBookingList(true);
             }

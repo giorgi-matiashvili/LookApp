@@ -14,6 +14,7 @@ public class AnswerBookingRequest {
         this.spotName = spotName;
         this.text = text;
         this.number = number;
+        this.spotId = spotId;
     }
 
     public String getSpotName() {

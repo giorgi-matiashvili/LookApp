@@ -43,4 +43,6 @@
     <string name="booking_sits">seats:</string>
     <string name="booking_time">time:</string>
     <string name="send">send</string>
+    <string name="reserve_success_message">Reserve request sent successfully</string>
+    <string name="reserve_unsuccess_message">Reserving places failed, try again</string>
 </resources>

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.lookapp.R;
 
@@ -25,6 +26,10 @@ public class UiUtils {
                 });
         alertDialog.show();
 
+    }
+
+    public static void showToast(String text, Context context){
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }
 
 }
