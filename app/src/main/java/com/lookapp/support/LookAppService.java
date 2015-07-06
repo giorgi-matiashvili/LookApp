@@ -2,6 +2,7 @@ package com.lookapp.support;
 
 import com.google.gson.reflect.TypeToken;
 import com.lookapp.api.exception.LookAppException;
+import com.lookapp.api.request.ReserveRequest;
 import com.lookapp.api.request.factory.RequestFactory;
 import com.lookapp.bean.LoginResponse;
 import com.lookapp.bean.RatingResponse;
@@ -88,5 +89,13 @@ public class LookAppService {
 
     public void updateFreeSitsInfo(long spotId,String sits) throws LookAppException{
         lat.execute(ServerConstants.UPDATE_SITS_SERVLET,rf.newUpdateSitsRequest(spotId, sits),Void.class);
+    }
+
+    public List<ReserveRequest> getBookingInfos(long spotId) throws LookAppException{
+        return lat.execute(ServerConstants.BOOKING_INFOS_SERVLET, rf.newBookingInfosRequest(spotId), new TypeToken< List<ReserveRequest>>(){}.getType());
+    }
+
+    public Void reserve(String sessionId,String time, String sits, String text,long spotId) throws LookAppException{
+        return lat.execute(ServerConstants.RESERVE_PLACE_SERVLET, rf.newReserveRequest(sessionId,time,sits,text,spotId),Void.class);
     }
 }

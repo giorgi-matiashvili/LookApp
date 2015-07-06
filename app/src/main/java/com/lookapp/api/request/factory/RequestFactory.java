@@ -1,5 +1,6 @@
 package com.lookapp.api.request.factory;
 
+import com.lookapp.api.request.BookingInfosRequest;
 import com.lookapp.api.request.ChangePasswordRequest;
 import com.lookapp.api.request.FavouriteAddRequest;
 import com.lookapp.api.request.FavouriteDeleteRequest;
@@ -11,6 +12,7 @@ import com.lookapp.api.request.LoginRequest;
 import com.lookapp.api.request.RatingRequest;
 import com.lookapp.api.request.RegisterRequest;
 import com.lookapp.api.request.RequestWithSessionId;
+import com.lookapp.api.request.ReserveRequest;
 import com.lookapp.api.request.SmsCodeRequest;
 import com.lookapp.api.request.SpotForAdminRequest;
 import com.lookapp.api.request.UpdateSitsRequest;
@@ -91,5 +93,13 @@ public class RequestFactory {
 
     public UpdateSitsRequest newUpdateSitsRequest(long spotId, String sits) {
         return new UpdateSitsRequest(spotId,sits);
+    }
+
+    public ReserveRequest newReserveRequest(String sessionId, String time, String sits, String text,long spotId) {
+        return new ReserveRequest(sessionId,time,sits,text,spotId);
+    }
+
+    public BookingInfosRequest newBookingInfosRequest(long spotId) {
+        return new BookingInfosRequest(spotId);
     }
 }

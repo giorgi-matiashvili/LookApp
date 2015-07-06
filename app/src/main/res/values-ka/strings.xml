@@ -30,4 +30,8 @@
     <string name="spot_details_event_text">ღონისძიება:</string>
     <string name="spot_details_menu_text">მენიუ</string>
     <string name="spot_details_reserve_text">დაჯავშნა</string>
+    <string name="booking_username">user name:</string>
+    <string name="booking_number">number:</string>
+    <string name="booking_sits">seats:</string>
+    <string name="booking_time">time:</string>
 </resources>

@@ -34,4 +34,8 @@
     <string name="spot_details_event_text">Event:</string>
     <string name="spot_details_menu_text">Menu</string>
     <string name="spot_details_reserve_text">Reserve</string>
+    <string name="booking_username">user name:</string>
+    <string name="booking_number">number:</string>
+    <string name="booking_sits">seats:</string>
+    <string name="booking_time">time:</string>
 </resources>
