@@ -1,5 +1,7 @@
 package com.lookapp.api.request.factory;
 
+import com.lookapp.api.request.AnswerBookingRequest;
+import com.lookapp.api.request.BookingInfosRequest;
 import com.lookapp.api.request.ChangePasswordRequest;
 import com.lookapp.api.request.FavouriteAddRequest;
 import com.lookapp.api.request.FavouriteDeleteRequest;
@@ -7,10 +9,12 @@ import com.lookapp.api.request.FavouriteIdsRequest;
 import com.lookapp.api.request.GetAvatarImageRequest;
 import com.lookapp.api.request.GetCoverImageRequest;
 import com.lookapp.api.request.GetMenuRequest;
+import com.lookapp.api.request.GetSitsRequest;
 import com.lookapp.api.request.LoginRequest;
 import com.lookapp.api.request.RatingRequest;
 import com.lookapp.api.request.RegisterRequest;
 import com.lookapp.api.request.RequestWithSessionId;
+import com.lookapp.api.request.ReserveRequest;
 import com.lookapp.api.request.SmsCodeRequest;
 import com.lookapp.api.request.SpotForAdminRequest;
 import com.lookapp.api.request.UpdateSitsRequest;
@@ -91,5 +95,21 @@ public class RequestFactory {
 
     public UpdateSitsRequest newUpdateSitsRequest(long spotId, String sits) {
         return new UpdateSitsRequest(spotId,sits);
+    }
+
+    public ReserveRequest newReserveRequest(String sessionId, String time, String sits, String text,long spotId) {
+        return new ReserveRequest(sessionId,time,sits,text,spotId);
+    }
+
+    public BookingInfosRequest newBookingInfosRequest(long spotId) {
+        return new BookingInfosRequest(spotId);
+    }
+
+    public AnswerBookingRequest newAnswerBookingRequest(long spotId, String spotName, String text, String number) {
+        return new AnswerBookingRequest(spotId,spotName,text,number);
+    }
+
+    public GetSitsRequest newGetSitsRequest(long spotId) {
+        return new GetSitsRequest(spotId);
     }
 }

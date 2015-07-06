@@ -22,6 +22,7 @@ public class Spot {
     @Expose private String type;
     @Expose private String wifiPassword;
     @Expose private byte[] avatar;
+    @Expose private String freeSits;
 
     public Spot() {
 
@@ -204,4 +205,11 @@ public class Spot {
         this.avatar = avatar;
     }
 
+    public String getFreeSits() {
+        return freeSits;
+    }
+
+    public void setFreeSits(String freeSits) {
+        this.freeSits = freeSits;
+    }
 }

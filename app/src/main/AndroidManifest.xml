@@ -60,6 +60,13 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".activities.AnswerBookingActivity"
+            android:label="@string/app_name"
+            android:configChanges="locale"
+            android:screenOrientation="portrait">
+        </activity>
+
 
 
     </application>

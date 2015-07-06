@@ -38,4 +38,9 @@
     <string name="spot_reserve_time_hint">საათი-წუთი</string>
     <string name="spot_reserve_comment">მაქსიმუმ 100 სიმბოლო</string>
     <string name="spot_reserve_comment_label">კომენტარი:</string>
+    <string name="booking_username">user name:</string>
+    <string name="booking_number">number:</string>
+    <string name="booking_sits">seats:</string>
+    <string name="booking_time">time:</string>
+    <string name="send">send</string>
 </resources>
