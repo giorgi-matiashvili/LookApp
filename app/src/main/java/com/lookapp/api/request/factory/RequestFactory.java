@@ -1,5 +1,6 @@
 package com.lookapp.api.request.factory;
 
+import com.lookapp.api.request.AddMenuItemRequest;
 import com.lookapp.api.request.AnswerBookingRequest;
 import com.lookapp.api.request.BookingInfosRequest;
 import com.lookapp.api.request.ChangePasswordRequest;
@@ -111,5 +112,9 @@ public class RequestFactory {
 
     public GetSitsRequest newGetSitsRequest(long spotId) {
         return new GetSitsRequest(spotId);
+    }
+
+    public AddMenuItemRequest newAddMenuItemRequest(long spotId, String menuName, String menuNameKa, double price, String description) {
+        return new AddMenuItemRequest( spotId, menuName, menuNameKa, price, description);
     }
 }
