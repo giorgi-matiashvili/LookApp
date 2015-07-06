@@ -52,25 +52,40 @@ public class SpotListAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.spot_list_item, parent, false);
             holder = new SpotHolder();
             holder.name = (TextView) convertView.findViewById(R.id.spot_name);
-            holder.img = (ImageView) convertView.findViewById(R.id.spot_avatar);
+            holder.type = (TextView) convertView.findViewById(R.id.spot_item_short_description);
+            holder.rating = (TextView) convertView.findViewById(R.id.spot_item_rating);
+            holder.places = (TextView) convertView.findViewById(R.id.spot_item_available_places);
+            holder.workingHours = (TextView) convertView.findViewById(R.id.spot_item_working_hours);
+            holder.avatar = (ImageView) convertView.findViewById(R.id.spot_avatar);
+            holder.wifi = (ImageView) convertView.findViewById(R.id.spot_item_wifi_icon);
             convertView.setTag(holder);
         } else {
             holder = (SpotHolder) convertView.getTag();
         }
         Spot item = getItem(position);
         holder.name.setText(item.getSpotName());
+        holder.type.setText(item.getType());
+        holder.rating.setText(item.getRating());
+        holder.workingHours.setText(item.getWorkingHours());
+        holder.places.setText(item.getFreeSits());
 
         if(item.getAvatar() != null) {
-            holder.img.setImageBitmap(BitmapFactory.decodeByteArray(item.getAvatar(),0,item.getAvatar().length));
+            holder.avatar.setImageBitmap(BitmapFactory.decodeByteArray(item.getAvatar(), 0, item.getAvatar().length));
         }else {
-            holder.img.setImageResource(R.drawable.ic_drawer_home);
+            holder.avatar.setImageResource(R.drawable.ic_drawer_home);
+        }
+
+        if (item.isHasWifi()){
+            holder.wifi.setVisibility(View.VISIBLE);
+        }else{
+            holder.wifi.setVisibility(View.GONE);
         }
 
         return convertView;
     }
 
     private static class SpotHolder{
-        TextView name;
-        ImageView img;
+        TextView name, type, rating, places, workingHours;
+        ImageView avatar, wifi;
     }
 }

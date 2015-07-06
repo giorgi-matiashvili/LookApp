@@ -2,7 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="spot_list_divider_height">1dp</dimen>
+    <dimen name="spot_list_divider_height">3dp</dimen>
 
     <dimen name="drawer_item_image_margin">10dp</dimen>
     <dimen name="drawer_width">240dp</dimen>
@@ -16,5 +16,11 @@
     <dimen name="spot_reserve_edit_text_padding">8dp</dimen>
     <dimen name="spot_reserve_vertical_margin">15dp</dimen>
     <dimen name="spot_reserve_label_value_margin">5dp</dimen>
+    <dimen name="spot_item_name_text_size">20sp</dimen>
+    <dimen name="spot_item_small_text_size">15sp</dimen>
+    <dimen name="spot_item_free_places_text_size">25sp</dimen>
+    <dimen name="spot_item_vertical_margin">3dp</dimen>
+    <dimen name="spot_item_padding">10dp</dimen>
+    <dimen name="spot_item_wifi_icon_margin">15dp</dimen>
 
 </resources>
