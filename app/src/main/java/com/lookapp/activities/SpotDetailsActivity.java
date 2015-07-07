@@ -115,6 +115,7 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
         ((TextView) findViewById(R.id.spot_details_working_hours)).setText(spot.getWorkingHours());
 
         findViewById(R.id.spot_details_reserve_btn).setOnClickListener(this);
+        findViewById(R.id.spot_details_menu).setOnClickListener(this);
 
     }
 
@@ -138,7 +139,9 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
         }else if(id == R.id.spot_details_address){
             // TODO map
         }else if(id == R.id.spot_details_menu){
-            //TODO: open menu activity
+            Intent intent = new Intent(this, SpotMenuActivity.class);
+            intent.putExtra("spotId", spot.getSpotId());
+            startActivity(intent);
         }else if(id == R.id.spot_details_reserve_btn){
             if(app.isLoggedIn()){
                 Intent intent = new Intent(this, ReserveActivity.class);

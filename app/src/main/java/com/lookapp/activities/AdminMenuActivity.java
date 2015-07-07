@@ -23,9 +23,9 @@ import java.util.List;
  */
 public class AdminMenuActivity extends CustomActivity implements View.OnClickListener{
 
-    Button addMenuItem;
-    SwipeListView listView;
-    MenuAdapter adapter;
+    private Button addMenuItem;
+    private SwipeListView listView;
+    private  MenuAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -47,9 +47,9 @@ public class MenuAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.menu_list_item, parent, false);
             holder = new ViewHolder();
-            holder.name = (TextView) convertView.findViewById(R.id.name);
-            holder.description = (TextView) convertView.findViewById(R.id.description);
-            holder.price = (TextView) convertView.findViewById(R.id.price);
+            holder.name = (TextView) convertView.findViewById(R.id.menu_item_name);
+            holder.description = (TextView) convertView.findViewById(R.id.menu_item_description);
+            holder.price = (TextView) convertView.findViewById(R.id.menu_item_price);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
