@@ -4,6 +4,7 @@ import com.lookapp.api.request.AddMenuItemRequest;
 import com.lookapp.api.request.AnswerBookingRequest;
 import com.lookapp.api.request.BookingInfosRequest;
 import com.lookapp.api.request.ChangePasswordRequest;
+import com.lookapp.api.request.DeleteMenuItemRequest;
 import com.lookapp.api.request.FavouriteAddRequest;
 import com.lookapp.api.request.FavouriteDeleteRequest;
 import com.lookapp.api.request.FavouriteIdsRequest;
@@ -116,5 +117,9 @@ public class RequestFactory {
 
     public AddMenuItemRequest newAddMenuItemRequest(long spotId, String menuName, String menuNameKa, double price, String description,String descriptionKa) {
         return new AddMenuItemRequest( spotId, menuName, menuNameKa, price, description,descriptionKa);
+    }
+
+    public DeleteMenuItemRequest newDeleteMenuItemRequest(long menuItemId) {
+        return new DeleteMenuItemRequest(menuItemId);
     }
 }

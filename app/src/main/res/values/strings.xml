@@ -50,6 +50,9 @@
     <string name="reserve_success_message">Reserve request sent successfully</string>
     <string name="reserve_unsuccess_message">Reserving places failed, try again</string>
     <string name="add_menu_item">Add Menu Item</string>
+    <string name="price">price:</string>
+    <string name="add">Add</string>
+    <string name="menu">Menu</string>
     <string name="sending_sms_code_failed_text">Sending SMS code failed, please try again</string>
     <string name="sending_sms_code_success_text">SMS code was sent successfully</string>
 </resources>

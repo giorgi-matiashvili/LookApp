@@ -6,16 +6,13 @@
     android:orientation="vertical">
 
 
-
-        <com.lookapp.swipelistview.SwipeListView
-            android:id="@+id/menu_list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:dividerHeight="@dimen/spot_list_divider_height"
-            tools:listitem="@layout/spot_list_item"/>
-
-
+    <com.lookapp.swipelistview.SwipeListView
+        android:id="@+id/menu_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="@dimen/spot_list_divider_height"
+        tools:listitem="@layout/spot_list_item" />
 
 
     <Button

@@ -27,5 +27,7 @@ public class ServerConstants {
     public static final String ANSWER_BOOKING_SERVLET = "AnswerBookingServlet";
     public static final String GET_SITS_SERVLET = "GetSitsServlet";
     public static final String ADD_MANU_ITEM_SERVLET = "AddMenuItemServlet";
+    public static final String GET_MENU_SERVLET = "GetMenuServlet";
+    public static final String DELETE_MENU_ITEM_SERVLET = "DeleteMenuItemServlet";
 
 }

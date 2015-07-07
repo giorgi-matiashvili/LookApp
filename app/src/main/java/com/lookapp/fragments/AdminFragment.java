@@ -1,5 +1,6 @@
 package com.lookapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.lookapp.R;
+import com.lookapp.activities.MenuActivity;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
 import com.lookapp.bean.SpotForAdmin;
@@ -119,6 +121,8 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
         eventSaveBtn.setOnClickListener(this);
         otherSaveBtn.setOnClickListener(this);
 
+        rootView.findViewById(R.id.menu).setOnClickListener(this);
+
 
 
     }
@@ -180,6 +184,9 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
             updateSpotInfo(spotForAdmin);
 
 
+        }else if(view.getId() == R.id.menu){
+            Intent intent = new Intent(getActivity(), MenuActivity.class);
+            startActivity(intent);
         }
     }
 
