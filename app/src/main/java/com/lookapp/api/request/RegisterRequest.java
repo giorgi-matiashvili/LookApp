@@ -6,12 +6,14 @@ package com.lookapp.api.request;
 public class RegisterRequest {
 
 
+    private String fullName;
     private String userName;
     private String password;
     private String number;
 
-    public RegisterRequest(String userName, String password, String number){
+    public RegisterRequest(String fullName, String userName, String password, String number){
         this.userName = userName;
+        this.fullName = fullName;
         this.password = password;
         this.number = number;
     }
@@ -40,5 +42,11 @@ public class RegisterRequest {
         this.number = number;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
 
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 }

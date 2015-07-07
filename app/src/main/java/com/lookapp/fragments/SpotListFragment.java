@@ -28,6 +28,9 @@ import java.util.List;
  */
 public class SpotListFragment extends CustomFragment implements  ListView.OnItemClickListener,AvatarDownloadListener{
 
+
+    private static final int SPOT_DETAILS_ACTIVITY_CODE = 1;
+
     private ListView spotList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private SpotListAdapter adapter;
@@ -95,12 +98,19 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
         task.execute();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == SPOT_DETAILS_ACTIVITY_CODE){
+            logger.d("SpotDetails finished, refreshing list");
+            downloadSpotList(true);
+        }
+    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent i = new Intent(activity, SpotDetailsActivity.class);
         i.putExtra("spotId", app.getSpotList().get(position).getSpotId());
-        startActivity(i);
+        startActivityForResult(i, SPOT_DETAILS_ACTIVITY_CODE);
     }
 
     @Override

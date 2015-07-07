@@ -53,8 +53,8 @@ public class LookAppService {
         return lat.execute(ServerConstants.SMS_CODE_SERVLET, rf.newGetSmsCodeRequest(number), SmsCode.class);
     }
 
-    public void register(String userName, String password, String number) throws LookAppException{
-        lat.execute(ServerConstants.REGISTER_SERVLET,rf.newRegisterRequest(userName,password,number),Void.class);
+    public void register(String fullName, String userName, String password, String number) throws LookAppException{
+        lat.execute(ServerConstants.REGISTER_SERVLET,rf.newRegisterRequest(fullName, userName,password,number),Void.class);
     }
 
     public LoginResponse login(String userName, String password) throws LookAppException{

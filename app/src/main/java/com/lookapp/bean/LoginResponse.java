@@ -6,6 +6,7 @@ package com.lookapp.bean;
 public class LoginResponse {
 
     private String sessionId;
+    private String fullName;
     private long adminSpotId;
 
     public LoginResponse() {
@@ -32,5 +33,13 @@ public class LoginResponse {
 
     public void setAdminSpotId(long adminSpotId) {
         this.adminSpotId = adminSpotId;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

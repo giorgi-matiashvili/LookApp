@@ -4,16 +4,23 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:paddingTop="@dimen/register_activity_side_padding"
+    android:paddingBottom="@dimen/register_activity_side_padding"
+
+    >
 
 
     <TextView
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username" />
+        android:text="Full Name" />
 
     <EditText
-        android:id="@+id/register_username"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
+        android:id="@+id/register_full_name_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/register_label_value_margin"
@@ -22,13 +29,36 @@
         android:padding="5dp" />
 
     <TextView
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
+        android:layout_marginTop="@dimen/register_activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username" />
+
+    <EditText
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
+        android:id="@+id/register_username_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_label_value_margin"
+        android:background="@drawable/rectangle_text_shape"
+        android:gravity="center"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
         android:text="Password" />
 
     <EditText
-        android:id="@+id/register_password"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
+        android:id="@+id/register_password_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/register_label_value_margin"
@@ -37,13 +67,17 @@
         android:padding="5dp" />
 
     <TextView
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
         android:text="Repeat Password" />
 
     <EditText
-        android:id="@+id/register_password_repeat"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
+        android:id="@+id/register_password_repeat_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/register_label_value_margin"
@@ -52,15 +86,20 @@
         android:padding="5dp" />
 
     <TextView
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
         android:text="Phone Number" />
 
     <EditText
-        android:id="@+id/register_number"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
+        android:id="@+id/register_phone_number_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:layout_marginTop="@dimen/register_label_value_margin"
         android:background="@drawable/rectangle_text_shape"
         android:gravity="center"
@@ -73,6 +112,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:layout_marginLeft="@dimen/register_activity_side_padding"
             android:id="@+id/register_sms_code_get_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -83,11 +123,13 @@
             android:textColor="@android:color/white" />
 
         <EditText
-            android:id="@+id/register_sms_code_enter"
+            android:layout_marginRight="@dimen/register_activity_side_padding"
+            android:id="@+id/register_sms_code_et"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
+            android:inputType="number"
             android:background="@drawable/rectangle_text_shape"
             android:gravity="center"
             android:padding="5dp" />
@@ -96,6 +138,8 @@
 
 
     <Button
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:id="@+id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

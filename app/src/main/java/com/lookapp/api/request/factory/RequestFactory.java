@@ -69,8 +69,8 @@ public class RequestFactory {
         return new SmsCodeRequest(number);
     }
 
-    public RegisterRequest newRegisterRequest(String userName, String password, String number) {
-        return new RegisterRequest(userName,password,number);
+    public RegisterRequest newRegisterRequest(String fullName, String userName, String password, String number) {
+        return new RegisterRequest(fullName, userName,password,number);
     }
 
     public FavouriteIdsRequest newFavouriteIdsRequest(String sessionId) {
