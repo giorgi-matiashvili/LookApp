@@ -10,7 +10,6 @@ import com.lookapp.R;
 import com.lookapp.adapters.MenuAdapter;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.MenuItem;
-import com.lookapp.bean.Spot;
 import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
 import com.lookapp.swipelistview.SwipeDismissListViewTouchListener;
@@ -22,7 +21,7 @@ import java.util.List;
 /**
  * Created by user on 07/07/2015.
  */
-public class MenuActivity extends CustomActivity implements View.OnClickListener{
+public class AdminMenuActivity extends CustomActivity implements View.OnClickListener{
 
     Button addMenuItem;
     SwipeListView listView;
@@ -78,7 +77,7 @@ public class MenuActivity extends CustomActivity implements View.OnClickListener
             @Override
             protected void onPostExecute(Void aVoid) {
                 if(exception == null){
-                    MenuActivity.this.downloadMenu(app.getAdminSpotId());
+                    AdminMenuActivity.this.downloadMenu(app.getAdminSpotId());
                 }else {
                     //TODO
                 }

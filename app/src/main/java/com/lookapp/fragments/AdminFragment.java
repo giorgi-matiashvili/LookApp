@@ -12,9 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.lookapp.R;
-import com.lookapp.activities.MenuActivity;
+import com.lookapp.activities.AdminMenuActivity;
 import com.lookapp.api.exception.LookAppException;
-import com.lookapp.bean.Spot;
 import com.lookapp.bean.SpotForAdmin;
 import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
@@ -185,7 +184,7 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
 
 
         }else if(view.getId() == R.id.menu){
-            Intent intent = new Intent(getActivity(), MenuActivity.class);
+            Intent intent = new Intent(getActivity(), AdminMenuActivity.class);
             startActivity(intent);
         }
     }
