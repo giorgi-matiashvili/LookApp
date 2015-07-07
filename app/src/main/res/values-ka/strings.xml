@@ -51,4 +51,5 @@
     <string name="menu">Menu</string>
     <string name="sending_sms_code_failed_text">Sending SMS code failed, please try again</string>
     <string name="sending_sms_code_success_text">SMS code was sent successfully</string>
+    <string name="wifi_password">wifi password:</string>
 </resources>

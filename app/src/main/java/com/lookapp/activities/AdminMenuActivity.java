@@ -3,6 +3,7 @@ package com.lookapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  * Created by user on 07/07/2015.
  */
-public class AdminMenuActivity extends CustomActivity implements View.OnClickListener{
+public class AdminMenuActivity extends CustomActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
 
     Button addMenuItem;
     SwipeListView listView;
@@ -37,6 +38,8 @@ public class AdminMenuActivity extends CustomActivity implements View.OnClickLis
 
         adapter = new MenuAdapter(new ArrayList<MenuItem>(),getLayoutInflater());
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(this);
 
         listView.setupSwipeToDismiss(new SwipeDismissListViewTouchListener.DismissCallbacks() {
             @Override
@@ -103,6 +106,11 @@ public class AdminMenuActivity extends CustomActivity implements View.OnClickLis
                 downloadMenu(app.getAdminSpotId());
             }
         }
+        if(requestCode == 2){
+            if(resultCode == RESULT_OK){
+                downloadMenu(app.getAdminSpotId());
+            }
+        }
     }
 
     private void downloadMenu(final long spotId){
@@ -127,6 +135,29 @@ public class AdminMenuActivity extends CustomActivity implements View.OnClickLis
         };
         task.execute();
     }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Intent intent = new Intent(this,MenuEditActivity.class);
+
+        MenuItem item = adapter.getItem(i);
+
+        Bundle b = new Bundle();
+
+        b.putLong("menuId", item.getId());
+        b.putString("menuName",item.getName());
+        b.putString("menuNameKa",item.getNameKa());
+        b.putString("menuDescription",item.getDescription());
+        b.putString("menuDescriptionKa", item.getDescriptionKa());
+        b.putDouble("price",item.getPrice());
+
+
+        intent.putExtras(b);
+
+        startActivityForResult(intent,2);
+
+    }
+
 
 
 }
