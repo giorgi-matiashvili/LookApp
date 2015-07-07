@@ -114,7 +114,7 @@ public class RequestFactory {
         return new GetSitsRequest(spotId);
     }
 
-    public AddMenuItemRequest newAddMenuItemRequest(long spotId, String menuName, String menuNameKa, double price, String description) {
-        return new AddMenuItemRequest( spotId, menuName, menuNameKa, price, description);
+    public AddMenuItemRequest newAddMenuItemRequest(long spotId, String menuName, String menuNameKa, double price, String description,String descriptionKa) {
+        return new AddMenuItemRequest( spotId, menuName, menuNameKa, price, description,descriptionKa);
     }
 }

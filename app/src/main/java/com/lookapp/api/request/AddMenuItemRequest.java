@@ -9,13 +9,15 @@ public class AddMenuItemRequest {
     private String menuNameKa;
     private double price;
     private String description;
+    private String descriptionKa;
 
-    public AddMenuItemRequest(long spotId, String menuName, String menuNameKa, double price, String description) {
+    public AddMenuItemRequest(long spotId, String menuName, String menuNameKa, double price, String description, String descriptionKa) {
         this.spotId = spotId;
         this.menuName = menuName;
         this.menuNameKa = menuNameKa;
         this.price = price;
         this.description = description;
+        this.descriptionKa = descriptionKa;
 
     }
 

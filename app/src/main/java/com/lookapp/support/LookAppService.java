@@ -108,8 +108,8 @@ public class LookAppService {
         return lat.execute(ServerConstants.GET_SITS_SERVLET,rf.newGetSitsRequest(spotId), Sit.class);
     }
 
-    public void addMenuItem(long spotId, String menuName, String menuNameKa, double price, String description) throws LookAppException{
-        lat.execute(ServerConstants.GET_SITS_SERVLET,rf.newAddMenuItemRequest(spotId,menuName,menuNameKa,price,description), Void.class);
+    public void addMenuItem(long spotId, String menuName, String menuNameKa, double price, String description,String descriptionKa) throws LookAppException{
+        lat.execute(ServerConstants.ADD_MANU_ITEM_SERVLET,rf.newAddMenuItemRequest(spotId,menuName,menuNameKa,price,description,descriptionKa), Void.class);
     }
 
 }
