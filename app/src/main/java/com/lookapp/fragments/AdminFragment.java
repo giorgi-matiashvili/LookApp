@@ -24,7 +24,7 @@ import com.lookapp.support.LookAppTask;
 public class AdminFragment extends CustomFragment implements View.OnClickListener{
 
     private View rootView;
-    private EditText freeSitsEt, eventKaEt,eventEnEt, spotNameEtKa, spotNameEtEn, workingHoursStart,workingHoursEnd,contactNumber,addressKa,addressEn;
+    private EditText freeSitsEt, eventKaEt,eventEnEt, spotNameEtKa, spotNameEtEn, workingHoursStart,workingHoursEnd,contactNumber,addressKa,addressEn,wifiPasswordEt,typeEtEn,typeEtKa;
     private Button freeSitsSaveBtn, eventSaveBtn, otherSaveBtn;
     private CheckBox hasWifiCheckBox, hasNonSmokingAreaCheckBox, canReservePlaceCheckBox;
     private SpotForAdmin spotForAdmin;
@@ -88,6 +88,10 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
         addressKa.setText(spotForAdmin.getSpotAddressKa(),TextView.BufferType.EDITABLE);
         addressEn.setText(spotForAdmin.getSpotAddress(),TextView.BufferType.EDITABLE);
 
+        wifiPasswordEt.setText(spotForAdmin.getWifiPassword(),TextView.BufferType.EDITABLE);
+        typeEtKa.setText(spotForAdmin.getTypeKa(),TextView.BufferType.EDITABLE);
+        typeEtEn.setText(spotForAdmin.getType(),TextView.BufferType.EDITABLE);
+
         hasWifiCheckBox.setChecked(spotForAdmin.isHasWifi());
         hasNonSmokingAreaCheckBox.setChecked(spotForAdmin.isHasNonSmokerArea());
         canReservePlaceCheckBox.setChecked(spotForAdmin.isCanReservePlace());
@@ -106,6 +110,10 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
         contactNumber = (EditText)rootView.findViewById(R.id.contact_number);
         addressKa = (EditText)rootView.findViewById(R.id.address_ka);
         addressEn = (EditText)rootView.findViewById(R.id.address_en);
+
+        wifiPasswordEt = (EditText)rootView.findViewById(R.id.wifi_password_et);
+        typeEtEn = (EditText)rootView.findViewById(R.id.type_en);
+        typeEtKa = (EditText)rootView.findViewById(R.id.type_ka);
 
 
         freeSitsSaveBtn = (Button)rootView.findViewById(R.id.free_sits_save_btn);
@@ -179,6 +187,10 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
             spotForAdmin.setContactInfo(contactNumber.getText().toString());
             spotForAdmin.setSpotAddress(addressEn.getText().toString());
             spotForAdmin.setSpotAddressKa(addressKa.getText().toString());
+
+            spotForAdmin.setWifiPassword(wifiPasswordEt.getText().toString());
+            spotForAdmin.setType(typeEtEn.getText().toString());
+            spotForAdmin.setTypeKa(typeEtKa.getText().toString());
 
             updateSpotInfo(spotForAdmin);
 
