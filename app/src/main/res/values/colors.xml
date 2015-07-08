@@ -11,6 +11,9 @@
     <color name="app_main_color_selected">#fe7664</color>
     <color name="spot_details_menu_text_color">#05b</color>
     <color name="spot_reserve_text_color">#ffff9c5c</color>
+    <color name="menu_item_name_color">@color/spot_details_header_text_color</color>
+    <color name="menu_item_description_color">@color/spot_details_header_text_color</color>
+    <color name="menu_item_price_color">@color/spot_details_header_text_color</color>
 
 
 </resources>

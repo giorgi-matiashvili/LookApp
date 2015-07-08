@@ -25,5 +25,8 @@
     <dimen name="register_activity_vertical_margin">8dp</dimen>
     <dimen name="register_label_value_margin">3dp</dimen>
     <dimen name="register_activity_side_padding">10dp</dimen>
+    <dimen name="menu_item_name_text_size">17sp</dimen>
+    <dimen name="menu_item_description_text_size">15sp</dimen>
+    <dimen name="menu_item_price_text_size">16sp</dimen>
 
 </resources>

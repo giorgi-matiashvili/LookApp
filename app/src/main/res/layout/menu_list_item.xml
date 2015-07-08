@@ -6,6 +6,7 @@
     android:paddingBottom="5dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
+    android:background="@android:color/white"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -21,12 +22,16 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:ellipsize="end"
+            android:textColor="@color/menu_item_name_color"
+            android:textSize="@dimen/menu_item_name_text_size"
             android:text="some name"/>
 
         <TextView
             android:layout_marginTop="3dp"
             android:maxLines="2"
             android:ellipsize="end"
+            android:textColor="@color/menu_item_description_color"
+            android:textSize="@dimen/menu_item_description_text_size"
             android:id="@+id/menu_item_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,6 +43,8 @@
     <TextView
         android:id="@+id/menu_item_price"
         android:text="some price"
+        android:textColor="@color/menu_item_price_color"
+        android:textSize="@dimen/menu_item_price_text_size"
         android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
