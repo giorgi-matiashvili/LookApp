@@ -16,7 +16,7 @@
     <string name="spot_rating_dialog_cancel_btn_text">შენახვა</string>
     <string name="logout">გამოსვლა</string>
     <string name="login">ავტორიზაცია</string>
-    <string name="free_sits">თავისუფალი ადგილების რაოდენობა</string>
+    <string name="free_sits">თავისუფალი ადგილები</string>
     <string name="has_non_smoking_area">არამწეველების ზონა</string>
     <string name="can_reserve_place">დაჯავშნის შესაძლებლობა</string>
     <string name="working_hours">სამუშაო საათები</string>
@@ -52,4 +52,5 @@
     <string name="sending_sms_code_failed_text">Sending SMS code failed, please try again</string>
     <string name="sending_sms_code_success_text">SMS code was sent successfully</string>
     <string name="wifi_password">wifi password:</string>
+    <string name="has_wifi">has wifi</string>
 </resources>
