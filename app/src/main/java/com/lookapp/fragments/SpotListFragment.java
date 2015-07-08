@@ -24,6 +24,7 @@ import com.lookapp.adapters.SpotListAdapter;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
 import com.lookapp.listeners.AvatarDownloadListener;
+import com.lookapp.listeners.SearchClickListener;
 import com.lookapp.support.LookAppTask;
 import com.lookapp.support.LookAppService;
 import com.lookapp.swipelistview.SwipeListView;
@@ -33,7 +34,7 @@ import java.util.List;
 /**
  * Created by Giorgi on 6/20/2015.
  */
-public class SpotListFragment extends CustomFragment implements  ListView.OnItemClickListener,AvatarDownloadListener,View.OnClickListener{
+public class SpotListFragment extends CustomFragment implements  ListView.OnItemClickListener,AvatarDownloadListener,SearchClickListener{
 
 
     private static final int SPOT_DETAILS_ACTIVITY_CODE = 1;
@@ -59,11 +60,6 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
     }
 
     private void initFilter() {
-
-        rootView.findViewById(R.id.filter_layout).setVisibility(View.GONE);
-
-        rootView.findViewById(R.id.filter_down_btn).setOnClickListener(this);
-
 
         ((EditText)rootView.findViewById(R.id.search_et)).addTextChangedListener(new TextWatcher() {
             @Override
@@ -199,18 +195,14 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
         adapter.notifyDataSetChanged();
     }
 
+
+
     @Override
-    public void onClick(View view) {
-
-        if(view.getId() == R.id.filter_down_btn){
-            if(rootView.findViewById(R.id.filter_layout).getVisibility() == View.VISIBLE){
-                rootView.findViewById(R.id.filter_layout).setVisibility(View.GONE);
-                ((ImageView)rootView.findViewById(R.id.filter_down_btn)).setImageResource(R.drawable.ic_action_arrow_bottom);
-            }else {
-                rootView.findViewById(R.id.filter_layout).setVisibility(View.VISIBLE);
-                ((ImageView)rootView.findViewById(R.id.filter_down_btn)).setImageResource(R.drawable.ic_action_arrow_top);
-            }
+    public void onSearchClick() {
+        if(rootView.findViewById(R.id.spot_search_main_view).getVisibility() == View.VISIBLE){
+            rootView.findViewById(R.id.spot_search_main_view).setVisibility(View.GONE);
+        }else {
+            rootView.findViewById(R.id.spot_search_main_view).setVisibility(View.VISIBLE);
         }
-
     }
 }

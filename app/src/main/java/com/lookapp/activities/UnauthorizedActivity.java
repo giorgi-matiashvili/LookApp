@@ -17,6 +17,7 @@ import com.lookapp.fragments.FavouritesFragment;
 import com.lookapp.fragments.LanguageChangeFragment;
 import com.lookapp.fragments.LoginFragment;
 import com.lookapp.fragments.SpotListFragment;
+import com.lookapp.listeners.SearchClickListener;
 
 /**
  * Created by Giorgi on 6/20/2015.
@@ -27,7 +28,8 @@ public class UnauthorizedActivity extends CustomActivity{
     private ListView mDrawerList;
     private CustomFragment[] drawerFragments;
     private AvatarLookAppTask avatarDownloadTask;
-    private ActionBar actionBar;
+    private SearchClickListener searchListener;
+//    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,21 @@ public class UnauthorizedActivity extends CustomActivity{
         actionBar = getCustomLayoutActionBar();
         showActionBarToggle(actionBar, true);
         addToggleListener();
+        addSearchClickListener();
+        showSearch(true);
+    }
+
+    private void addSearchClickListener() {
+        actionBar.getCustomView().findViewById(R.id.action_search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              searchListener.onSearchClick();
+            }
+        });
+    }
+
+    private void addSearchListener(SearchClickListener listener) {
+        this.searchListener = listener;
     }
 
     private void addToggleListener() {
@@ -69,6 +86,7 @@ public class UnauthorizedActivity extends CustomActivity{
         drawerFragments[1] = favouritesFragment;
 
         SpotListFragment spotListFragment = new SpotListFragment();
+        addSearchListener(spotListFragment);
         avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
         drawerFragments[2] = spotListFragment;
 
@@ -94,6 +112,7 @@ public class UnauthorizedActivity extends CustomActivity{
     private class OnUnauthorizedDrawerClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            showSearch(false);
             switch (position){
                 case 0:{
                     showFragment(drawerFragments[0]);
@@ -105,6 +124,7 @@ public class UnauthorizedActivity extends CustomActivity{
                 }
                 case 2:{
                     showFragment(drawerFragments[2]);
+                    showSearch(true);
                     break;
                 }
                 case 3:{
@@ -116,6 +136,10 @@ public class UnauthorizedActivity extends CustomActivity{
             mDrawerLayout.closeDrawer(mDrawerList);
 
         }
+    }
+
+    private void showSearch(boolean show) {
+        actionBar.getCustomView().findViewById(R.id.action_search).setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     private void showFragment(CustomFragment fragment) {

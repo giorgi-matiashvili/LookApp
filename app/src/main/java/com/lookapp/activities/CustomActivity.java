@@ -21,6 +21,7 @@ public class CustomActivity extends Activity{
 
     protected AppLogger logger;
     protected App app;
+    protected ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class CustomActivity extends Activity{
     }
 
     public ActionBar getCustomLayoutActionBar() {
-        ActionBar actionBar = getActionBar();
+        actionBar = getActionBar();
         if (actionBar != null)
             if (actionBar.getCustomView() == null) {
                 actionBar.setCustomView(R.layout.actionbar_custom_view);
@@ -51,6 +52,7 @@ public class CustomActivity extends Activity{
             actionBarToggle.setVisibility(View.GONE);
         }
     }
+
 
     public void registerLocalBroadcastReceiver(String action, BroadcastReceiver receiver) {
         LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter(action));
