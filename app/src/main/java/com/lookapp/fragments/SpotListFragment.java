@@ -4,11 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.lookapp.R;
@@ -20,31 +26,106 @@ import com.lookapp.bean.Spot;
 import com.lookapp.listeners.AvatarDownloadListener;
 import com.lookapp.support.LookAppTask;
 import com.lookapp.support.LookAppService;
+import com.lookapp.swipelistview.SwipeListView;
 
 import java.util.List;
 
 /**
  * Created by Giorgi on 6/20/2015.
  */
-public class SpotListFragment extends CustomFragment implements  ListView.OnItemClickListener,AvatarDownloadListener{
+public class SpotListFragment extends CustomFragment implements  ListView.OnItemClickListener,AvatarDownloadListener,View.OnClickListener{
 
 
     private static final int SPOT_DETAILS_ACTIVITY_CODE = 1;
 
-    private ListView spotList;
+    private SwipeListView spotList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private SpotListAdapter adapter;
+    private View rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_spot_list, container, false);
-        spotList = (ListView) view.findViewById(R.id.spot_list);
+        rootView = inflater.inflate(R.layout.fragment_spot_list, container, false);
+        spotList = (SwipeListView) rootView.findViewById(R.id.spot_list);
         spotList.setOnItemClickListener(this);
         adapter = new SpotListAdapter(app.getSpotList(), activity.getLayoutInflater());
         spotList.setAdapter(adapter);
-        createSwipeRefresh(view);
-        return view;
+        createSwipeRefresh(rootView);
+
+        initFilter();
+
+        return rootView;
+    }
+
+    private void initFilter() {
+
+        rootView.findViewById(R.id.filter_layout).setVisibility(View.GONE);
+
+        rootView.findViewById(R.id.filter_down_btn).setOnClickListener(this);
+
+
+        ((EditText)rootView.findViewById(R.id.search_et)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter.setMainQuery(charSequence.toString());
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        ((EditText)rootView.findViewById(R.id.free_sits_et)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter.setSitsQuery(charSequence.toString());
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        ((CheckBox)rootView.findViewById(R.id.has_wifi_check_box)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                adapter.setHasWifi(b);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        ((CheckBox)rootView.findViewById(R.id.has_non_smoking_area_check_box)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                adapter.setHasNonSmokingArea(b);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        ((CheckBox)rootView.findViewById(R.id.can_reserve_place_checkbox)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                adapter.setCanReservePlace(b);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
+
+
     }
 
     private void createSwipeRefresh(View layout) {
@@ -116,5 +197,20 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
     @Override
     public void onAvatarDownloaded() {
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if(view.getId() == R.id.filter_down_btn){
+            if(rootView.findViewById(R.id.filter_layout).getVisibility() == View.VISIBLE){
+                rootView.findViewById(R.id.filter_layout).setVisibility(View.GONE);
+                ((ImageView)rootView.findViewById(R.id.filter_down_btn)).setImageResource(R.drawable.ic_action_arrow_bottom);
+            }else {
+                rootView.findViewById(R.id.filter_layout).setVisibility(View.VISIBLE);
+                ((ImageView)rootView.findViewById(R.id.filter_down_btn)).setImageResource(R.drawable.ic_action_arrow_top);
+            }
+        }
+
     }
 }
