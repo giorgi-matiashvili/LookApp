@@ -1,8 +1,10 @@
 package com.lookapp.activities;
 
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -25,18 +27,33 @@ public class UnauthorizedActivity extends CustomActivity{
     private ListView mDrawerList;
     private CustomFragment[] drawerFragments;
     private AvatarLookAppTask avatarDownloadTask;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unauthorized);
         avatarDownloadTask = new AvatarLookAppTask();
-
         initDrawerFragments();
         initDrawerLayout();
         showFragment(drawerFragments[2]);
         avatarDownloadTask.execute();
+        actionBar = getCustomLayoutActionBar();
+        showActionBarToggle(actionBar, true);
+        addToggleListener();
+    }
 
+    private void addToggleListener() {
+        actionBar.getCustomView().findViewById(R.id.custom_action_bar_toggle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+                    mDrawerLayout.closeDrawer(Gravity.LEFT);
+                } else {
+                    mDrawerLayout.openDrawer(Gravity.LEFT);
+                }
+            }
+        });
     }
 
     private void initDrawerFragments() {
