@@ -12,9 +12,9 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:orientation="horizontal">
@@ -26,120 +26,139 @@
                 android:text="@string/free_sits" />
 
             <EditText
-                android:padding="3dp"
                 android:id="@+id/free_sits_et"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectangle_text_shape"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="3dp" />
 
             <Button
-                android:textColor="@android:color/white"
                 android:id="@+id/free_sits_save_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@drawable/round_button_selector"
-                android:text="@string/save" />
+                android:padding="5dp"
+                android:text="@string/save"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/admin_panel_text_size" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/admin_panel_divider_height"
+            android:layout_marginBottom="10dp"
+            android:background="@color/spot_list_divider_color" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
             android:layout_marginBottom="6dp"
+            android:layout_marginLeft="4dp"
             android:text="ივენთი (ქართულად):" />
 
         <EditText
-            android:textSize="14sp"
-            android:padding="3dp"
             android:id="@+id/event_ka"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="top"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:background="@drawable/rectangle_text_shape"
-            android:lines="3" />
+            android:gravity="top"
+            android:lines="3"
+            android:padding="3dp"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginLeft="4dp"
             android:layout_marginBottom="6dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="6dp"
             android:text="event (EN):" />
 
         <EditText
-            android:textSize="14sp"
-            android:padding="3dp"
             android:id="@+id/event_en"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="top"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:background="@drawable/rectangle_text_shape"
-            android:lines="3" />
+            android:gravity="top"
+            android:lines="3"
+            android:padding="3dp"
+            android:textSize="14sp" />
 
         <Button
-            android:layout_margin="4dp"
-            android:layout_height="30dp"
-            android:background="@drawable/round_button_selector"
             android:id="@+id/event_save_btn"
             android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:layout_margin="4dp"
+            android:background="@drawable/round_button_selector"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/save"
             android:textColor="@android:color/white"
-            android:text="@string/save" />
+            android:textSize="@dimen/admin_panel_text_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/admin_panel_divider_height"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spot_list_divider_color" />
 
 
         <LinearLayout
-            android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="სახელი(ქართულად):" />
 
             <EditText
-                android:padding="3dp"
-                android:background="@drawable/rectangle_text_shape"
                 android:id="@+id/spot_name_et_ka"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_text_shape"
+                android:padding="3dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="name(EN):" />
 
             <EditText
-                android:padding="3dp"
-                android:background="@drawable/rectangle_text_shape"
                 android:id="@+id/spot_name_et_en"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_text_shape"
+                android:padding="3dp" />
 
         </LinearLayout>
 
@@ -161,11 +180,11 @@
                 android:layout_weight="1" />
 
             <CheckBox
-                android:button="@drawable/chb_save_name_selector"
                 android:id="@+id/has_wifi_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:button="@drawable/chb_save_name_selector" />
 
         </LinearLayout>
 
@@ -178,34 +197,34 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/wifi_password" />
 
             <EditText
-                android:padding="3dp"
-                android:background="@drawable/rectangle_text_shape"
                 android:id="@+id/wifi_password_et"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_text_shape"
+                android:padding="3dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_marginBottom="6dp"
             android:layout_marginLeft="4dp"
+
             android:layout_marginRight="4dp"
+            android:layout_marginTop="6dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="@string/has_non_smoking_area" />
 
             <View
@@ -214,27 +233,27 @@
                 android:layout_weight="1" />
 
             <CheckBox
-                android:button="@drawable/chb_save_name_selector"
                 android:id="@+id/has_non_smoking_area_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:button="@drawable/chb_save_name_selector" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
+            android:layout_marginTop="6dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="@string/can_reserve_place" />
 
             <View
@@ -243,11 +262,11 @@
                 android:layout_weight="1" />
 
             <CheckBox
-                android:button="@drawable/chb_save_name_selector"
                 android:id="@+id/can_reserve_place_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:button="@drawable/chb_save_name_selector" />
 
         </LinearLayout>
 
@@ -260,165 +279,172 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/working_hours" />
 
             <EditText
-                android:padding="3dp"
-                android:background="@drawable/rectangle_text_shape"
                 android:id="@+id/working_hours_start"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="4dp"
                 android:layout_marginLeft="4dp"
-                android:inputType="datetime" />
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_text_shape"
+                android:inputType="datetime"
+                android:padding="3dp" />
 
             <EditText
-                android:padding="3dp"
-                android:background="@drawable/rectangle_text_shape"
                 android:id="@+id/working_hours_end"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:inputType="time" />
+                android:background="@drawable/rectangle_text_shape"
+                android:inputType="time"
+                android:padding="3dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
+            android:layout_marginTop="6dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:text="@string/contact_info" />
 
             <EditText
-                android:padding="3dp"
-                android:background="@drawable/rectangle_text_shape"
                 android:id="@+id/contact_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="2"
+                android:background="@drawable/rectangle_text_shape"
                 android:hint="5XXXXXXXX"
-                android:inputType="time" />
+                android:inputType="time"
+                android:padding="3dp" />
 
 
         </LinearLayout>
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="6dp"
             android:text="მისამართი(ქართულად):" />
 
         <EditText
-            android:padding="3dp"
-            android:background="@drawable/rectangle_text_shape"
             android:id="@+id/address_ka"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:background="@drawable/rectangle_text_shape"
+            android:padding="3dp" />
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="6dp"
             android:text="address(EN):" />
 
         <EditText
-            android:padding="3dp"
-            android:background="@drawable/rectangle_text_shape"
             android:id="@+id/address_en"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:background="@drawable/rectangle_text_shape"
+            android:padding="3dp" />
 
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="6dp"
             android:text="ტიპი(ქართულად):" />
 
         <EditText
-            android:padding="3dp"
-            android:background="@drawable/rectangle_text_shape"
             android:id="@+id/type_ka"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:background="@drawable/rectangle_text_shape"
+            android:padding="3dp" />
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="6dp"
             android:text="type(EN):" />
 
         <EditText
-            android:padding="3dp"
-            android:background="@drawable/rectangle_text_shape"
             android:id="@+id/type_en"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:background="@drawable/rectangle_text_shape"
+            android:padding="3dp" />
 
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
+
             <Button
-                android:textColor="@android:color/white"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/round_button_selector"
-                android:layout_height="30dp"
                 android:id="@+id/save_others"
                 android:layout_width="wrap_content"
-                android:text="@string/save" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_button_selector"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/save"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/admin_panel_text_size" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <Button
-                android:textColor="@android:color/white"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/round_button_selector"
-                android:layout_height="30dp"
                 android:id="@+id/menu"
                 android:layout_width="wrap_content"
-                android:text="@string/menu" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_button_selector"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/menu"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/admin_panel_text_size" />
         </LinearLayout>
-
-
 
 
     </LinearLayout>

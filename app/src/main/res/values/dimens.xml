@@ -54,5 +54,7 @@
     <dimen name="menu_add_button_margin">15dp</dimen>
     <dimen name="booking_response_paddings">10dp</dimen>
     <dimen name="search_text_size">15sp</dimen>
+    <dimen name="admin_panel_text_size">15sp</dimen>
+    <dimen name="admin_panel_divider_height">3dp</dimen>
 
 </resources>

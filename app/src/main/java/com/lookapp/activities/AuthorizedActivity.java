@@ -166,12 +166,14 @@ public class AuthorizedActivity extends CustomActivity {
     private class AuthorizedDrawerAdminClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            showSearch(false);
             switch (position){
                 case 0:{
                     showFragment(drawerFragments[0]);
                     break;
                 }
                 case 1:{
+                    showSearch(true);
                     showFragment(drawerFragments[1]);
                     break;
                 }
