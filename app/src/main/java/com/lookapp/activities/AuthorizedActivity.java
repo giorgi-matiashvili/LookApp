@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.lookapp.R;
 import com.lookapp.Tasks.AvatarLookAppTask;
@@ -31,6 +32,8 @@ public class AuthorizedActivity extends CustomActivity {
     private AvatarLookAppTask avatarDownloadTask;
     private ActionBar actionBar;
     private SearchClickListener searchListener;
+    private AuthorizedDrawerAdapter drawerAdapter;
+    private AuthorizedDrawerAdminAdapter drawerAdapterAdmin;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,14 @@ public class AuthorizedActivity extends CustomActivity {
         showActionBarToggle(actionBar, true);
         addToggleListener();
         addSearchClickListener();
+
+
+        View headerView = getLayoutInflater().inflate(R.layout.drawer_list_header,null);
+        ((TextView)headerView.findViewById(R.id.drawer_item_header_text)).setText(app.getFullName());
+
+        mDrawerList.addHeaderView(headerView);
+
+
         showSearch(true);
     }
 
@@ -58,6 +69,7 @@ public class AuthorizedActivity extends CustomActivity {
             }
         });
     }
+
     private void showSearch(boolean show) {
         actionBar.getCustomView().findViewById(R.id.action_search).setVisibility(show ? View.VISIBLE : View.GONE);
     }
@@ -89,7 +101,7 @@ public class AuthorizedActivity extends CustomActivity {
 
         SpotListFragment searchFragment = null;
 
-        if(app.getAdminSpotId() < 0){
+        if (app.getAdminSpotId() < 0) {
             drawerFragments = new CustomFragment[2];
 
             FavouritesFragment favouritesFragment = new FavouritesFragment();
@@ -99,7 +111,7 @@ public class AuthorizedActivity extends CustomActivity {
             searchFragment = spotListFragment;
             avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
             drawerFragments[1] = spotListFragment;
-        }else{
+        } else {
             drawerFragments = new CustomFragment[4];
 
             FavouritesFragment favouritesFragment = new FavouritesFragment();
@@ -125,11 +137,13 @@ public class AuthorizedActivity extends CustomActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        if(app.getAdminSpotId()<0){
-            mDrawerList.setAdapter(new AuthorizedDrawerAdapter(getLayoutInflater()));
+        if (app.getAdminSpotId() < 0) {
+            drawerAdapter = new AuthorizedDrawerAdapter(getLayoutInflater());
+            mDrawerList.setAdapter(drawerAdapter);
             mDrawerList.setOnItemClickListener(new AuthorizedDrawerClickListener());
-        }else {
-            mDrawerList.setAdapter(new AuthorizedDrawerAdminAdapter(getLayoutInflater()));
+        } else {
+            drawerAdapterAdmin = new AuthorizedDrawerAdminAdapter(getLayoutInflater());
+            mDrawerList.setAdapter(drawerAdapterAdmin);
             mDrawerList.setOnItemClickListener(new AuthorizedDrawerAdminClickListener());
         }
 
@@ -139,18 +153,27 @@ public class AuthorizedActivity extends CustomActivity {
     private class AuthorizedDrawerClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            if(position == 0){
+                return;
+            }
+
+            position--;
             showSearch(false);
-            switch (position){
-                case 0:{
+
+            drawerAdapter.setCheckedPosition(position);
+            drawerAdapter.notifyDataSetChanged();
+
+            switch (position) {
+                case 0: {
                     showFragment(drawerFragments[0]);
                     break;
                 }
-                case 1:{
+                case 1: {
                     showSearch(true);
                     showFragment(drawerFragments[1]);
                     break;
                 }
-                case 2:{
+                case 2: {
                     app.setIsLoggedIn(false);
                     finish();
                     break;
@@ -166,26 +189,35 @@ public class AuthorizedActivity extends CustomActivity {
     private class AuthorizedDrawerAdminClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            if(position == 0){
+                return;
+            }
+
+            position--;
             showSearch(false);
-            switch (position){
-                case 0:{
+
+            drawerAdapterAdmin.setCheckedPosition(position);
+            drawerAdapterAdmin.notifyDataSetChanged();
+            switch (position) {
+                case 0: {
                     showFragment(drawerFragments[0]);
                     break;
                 }
-                case 1:{
-                    showSearch(true);
+                case 1: {
                     showFragment(drawerFragments[1]);
                     break;
                 }
-                case 2:{
+                case 2: {
                     showFragment(drawerFragments[2]);
                     break;
-                }case 3:{
+                }
+                case 3: {
                     showFragment(drawerFragments[3]);
                     break;
                 }
 
-                case 4:{
+                case 4: {
                     app.setIsLoggedIn(false);
                     finish();
                     break;

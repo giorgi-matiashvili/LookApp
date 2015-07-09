@@ -109,6 +109,7 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
                     RequestInvoker.getInstance().onLogin(LoginFragment.this);
                     app.setSessionId(loginResponse.getSessionId());
                     app.setAdminSpotId(loginResponse.getAdminSpotId());
+                    app.setFullName(loginResponse.getFullName());
                 }
             }
         };
