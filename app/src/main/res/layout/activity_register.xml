@@ -4,100 +4,102 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:paddingTop="@dimen/register_activity_side_padding"
     android:paddingBottom="@dimen/register_activity_side_padding"
+    android:paddingTop="@dimen/register_activity_side_padding"
 
     >
 
 
     <TextView
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:text="@string/register_full_name" />
 
     <EditText
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:id="@+id/register_full_name_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_label_value_margin"
         android:background="@drawable/rectangle_text_shape"
         android:padding="5dp" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/register_activity_side_padding"
         android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/register_username" />
 
     <EditText
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:id="@+id/register_username_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_label_value_margin"
         android:background="@drawable/rectangle_text_shape"
         android:padding="5dp" />
 
     <TextView
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
         android:text="@string/register_password" />
 
     <EditText
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:id="@+id/register_password_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_label_value_margin"
         android:background="@drawable/rectangle_text_shape"
+        android:inputType="textPassword"
         android:padding="5dp" />
 
     <TextView
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
         android:text="@string/register_repeat_password" />
 
     <EditText
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:id="@+id/register_password_repeat_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_label_value_margin"
         android:background="@drawable/rectangle_text_shape"
+        android:inputType="textPassword"
         android:padding="5dp" />
 
     <TextView
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
         android:text="@string/register_phone_number" />
 
     <EditText
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:id="@+id/register_phone_number_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_label_value_margin"
         android:background="@drawable/rectangle_text_shape"
+        android:inputType="number"
         android:padding="5dp" />
 
     <LinearLayout
@@ -107,38 +109,38 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_marginLeft="@dimen/register_activity_side_padding"
             android:id="@+id/register_sms_code_get_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/register_activity_side_padding"
             android:layout_marginRight="5dp"
-            android:textSize="15dp"
             android:layout_weight="1"
             android:background="@drawable/round_button_selector"
             android:text="@string/register_sms_code_get"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="15dp" />
 
         <EditText
-            android:layout_marginRight="@dimen/register_activity_side_padding"
             android:id="@+id/register_sms_code_et"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
+            android:layout_marginRight="@dimen/register_activity_side_padding"
             android:layout_weight="1"
-            android:inputType="number"
             android:background="@drawable/rectangle_text_shape"
             android:gravity="right"
+            android:inputType="number"
             android:padding="5dp" />
 
     </LinearLayout>
 
 
     <Button
-        android:layout_marginLeft="@dimen/register_activity_side_padding"
-        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:id="@+id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_activity_side_padding"
+        android:layout_marginRight="@dimen/register_activity_side_padding"
         android:layout_marginTop="@dimen/register_activity_vertical_margin"
         android:background="@drawable/round_button_selector"
         android:text="@string/register"

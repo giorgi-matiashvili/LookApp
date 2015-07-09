@@ -15,6 +15,10 @@
     <color name="menu_item_description_color">@color/spot_details_header_text_color</color>
     <color name="menu_item_price_color">@color/spot_details_header_text_color</color>
     <color name="app_dark_text_color">#666633</color>
+    <color name="search_text_color">#ffacacac</color>
+    <color name="search_background_color">#fdd</color>
+    <color name="spot_list_divider_color">#ffd9d9d9</color>
+    <color name="search_divider_color">#fdd</color>
 
 
 </resources>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="left"
     android:padding="@dimen/spot_item_padding"
     android:background="@android:color/white"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/spot_main_view"
@@ -117,7 +117,19 @@
 
         </LinearLayout>
 
+
+
     </LinearLayout>
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/spot_list_divider_color"
+        />
+
+
 
     <!--<TextView-->
         <!--android:layout_marginTop="8dp"-->
@@ -130,4 +142,4 @@
         <!--/>-->
 
 
-</RelativeLayout>
+</LinearLayout>

@@ -138,6 +138,9 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
     @Override
     public void onResume() {
         super.onResume();
-        userName.setText(Settings.getUserName());
+        if(userName != null)
+            userName.setText(Settings.getUserName());
+        if(password != null)
+            password.setText("");
     }
 }

@@ -18,6 +18,7 @@ import com.lookapp.fragments.AdminFragment;
 import com.lookapp.fragments.CustomFragment;
 import com.lookapp.fragments.FavouritesFragment;
 import com.lookapp.fragments.SpotListFragment;
+import com.lookapp.listeners.SearchClickListener;
 
 /**
  * Created by user on 02/07/2015.
@@ -29,6 +30,7 @@ public class AuthorizedActivity extends CustomActivity {
     private CustomFragment[] drawerFragments;
     private AvatarLookAppTask avatarDownloadTask;
     private ActionBar actionBar;
+    private SearchClickListener searchListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,25 @@ public class AuthorizedActivity extends CustomActivity {
         actionBar = getCustomLayoutActionBar();
         showActionBarToggle(actionBar, true);
         addToggleListener();
+        addSearchClickListener();
+        showSearch(true);
+    }
+
+    private void addSearchClickListener() {
+        actionBar.getCustomView().findViewById(R.id.action_search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchListener.onSearchClick();
+            }
+        });
+    }
+    private void showSearch(boolean show) {
+        actionBar.getCustomView().findViewById(R.id.action_search).setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+
+    private void setSearchListener(SearchClickListener listener) {
+        this.searchListener = listener;
     }
 
     private void addToggleListener() {
@@ -66,7 +87,7 @@ public class AuthorizedActivity extends CustomActivity {
 
     private void initDrawerFragments() {
 
-
+        SpotListFragment searchFragment = null;
 
         if(app.getAdminSpotId() < 0){
             drawerFragments = new CustomFragment[2];
@@ -75,6 +96,7 @@ public class AuthorizedActivity extends CustomActivity {
             drawerFragments[0] = favouritesFragment;
 
             SpotListFragment spotListFragment = new SpotListFragment();
+            searchFragment = spotListFragment;
             avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
             drawerFragments[1] = spotListFragment;
         }else{
@@ -84,6 +106,7 @@ public class AuthorizedActivity extends CustomActivity {
             drawerFragments[0] = favouritesFragment;
 
             SpotListFragment spotListFragment = new SpotListFragment();
+            searchFragment = spotListFragment;
             avatarDownloadTask.addAvatarDownloadListener(spotListFragment);
             drawerFragments[1] = spotListFragment;
 
@@ -94,6 +117,7 @@ public class AuthorizedActivity extends CustomActivity {
             drawerFragments[3] = adminBookingFragment;
         }
 
+        setSearchListener(searchFragment);
 
     }
 
@@ -115,12 +139,14 @@ public class AuthorizedActivity extends CustomActivity {
     private class AuthorizedDrawerClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            showSearch(false);
             switch (position){
                 case 0:{
                     showFragment(drawerFragments[0]);
                     break;
                 }
                 case 1:{
+                    showSearch(true);
                     showFragment(drawerFragments[1]);
                     break;
                 }
