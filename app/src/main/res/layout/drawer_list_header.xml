@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
+    <ImageView
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:src="@drawable/ic_user"/>
 
+    <TextView
         android:id="@+id/drawer_item_header_text"
-        android:padding="5dp"
-        android:gravity="center"
-        android:textColor="@color/drawer_text_color"
+        android:padding="10dp"
+        android:layout_gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="@color/drawer_text_color_heder"
         android:background="@color/drawer_background_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

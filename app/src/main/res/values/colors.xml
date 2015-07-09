@@ -21,6 +21,7 @@
     <color name="search_divider_color">#fdd</color>
     <color name="drawer_background_color">#ffeaeaea</color>
     <color name="drawer_text_color">#ff797979</color>
+    <color name="drawer_text_color_heder">#ff767676</color>
 
 
 </resources>
