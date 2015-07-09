@@ -177,6 +177,7 @@
 
 
             <TextView
+                android:id="@+id/spot_details_smoking_area_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/spot_details_smoking_zone_text"
@@ -185,13 +186,13 @@
                 android:textColor="@color/spot_details_header_text_color"
                 />
 
-            <ImageView
-                android:id="@+id/spot_details_smoking_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cross"
-                android:layout_marginLeft="@dimen/spot_details_activity_margin"
-                />
+            <!--<ImageView-->
+                <!--android:id="@+id/spot_details_smoking_image"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/cross"-->
+                <!--android:layout_marginLeft="@dimen/spot_details_activity_margin"-->
+                <!--/>-->
 
         </LinearLayout>
 

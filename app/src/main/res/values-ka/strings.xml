@@ -9,7 +9,7 @@
     <string name="favourites">ფავორიტები</string>
     <string name="spot_list">ადგილების სია</string>
     <string name="save">შენახვა</string>
-    <string name="choose_language">პარამეტრები</string>
+    <string name="drawer_settings_text">პარამეტრები</string>
     <string name="login_error">დაფიქსირდა შეცდომა</string>
     <string name="favourite_add_error">ფავორიტებში დამატებისას მოხდა შეცდომა</string>
     <string name="spot_rating_dialog_rate_btn_text">შეფასება</string>
@@ -26,9 +26,11 @@
     <string name="spot_details_contact_info_text">საკონტაქტო ინფორმაცია:</string>
     <string name="spot_details_working_hours_text">სამუშაო საათები:</string>
     <string name="spot_details_address_text">მისამართი:</string>
-    <string name="spot_details_smoking_zone_text">არამწეველების ზონა</string>
+    <string name="spot_details_smoking_zone_text">არ აქვს არამწეველების ზონა</string>
+    <string name="spot_details_has_smoking_zone_text">აქვს არამწეველების ზონა</string>
     <string name="spot_details_event_text">ღონისძიება:</string>
     <string name="spot_details_menu_text">მენიუ</string>
+    <string name="choose_language">აპლიკაციის ენა:</string>
     <string name="spot_details_reserve_text">დაჯავშნა</string>
     <string name="spot_reserve_alert_text">ადგილის დასაჯავშნად საჭიროა ავტორიზაციის გავლა</string>
     <string name="alert_dialog_ok_btn_text">გასაგებია</string>

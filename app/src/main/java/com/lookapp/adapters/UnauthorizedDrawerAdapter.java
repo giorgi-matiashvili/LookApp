@@ -26,7 +26,7 @@ public class UnauthorizedDrawerAdapter extends BaseAdapter {
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.login), R.drawable.ic_drawer_login));
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.favourites), R.drawable.ic_drawer_favourites));
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.spot_list), R.drawable.ic_drawer_home));
-        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.choose_language), R.drawable.ic_gear));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.drawer_settings_text), R.drawable.ic_gear));
     }
 
     @Override

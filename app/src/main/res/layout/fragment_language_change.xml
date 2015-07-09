@@ -1,29 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <RadioGroup
-        android:id="@+id/language_radio_group"
+    <!--<RadioGroup-->
+    <!--android:id="@+id/language_radio_group"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<RadioButton-->
+    <!--android:id="@+id/radio_btn_en"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="English"/>-->
+    <!--<RadioButton-->
+    <!--android:id="@+id/radio_btn_ka"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="ქართული"/>-->
+    <!--</RadioGroup>-->
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/radio_btn_en"
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/settings_language"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="English"/>
-        <RadioButton
-            android:id="@+id/radio_btn_ka"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ქართული"/>
-    </RadioGroup>
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.5"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/choose_language"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/choose_language_button_en"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_selector"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:text="English"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/choose_language_button_ka"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_selector"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:text="ქართული"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/language_save"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:text="@string/save"
-        />
+        android:background="@drawable/round_button_selector"
+        android:text="@string/save" />
+
 
 </LinearLayout>

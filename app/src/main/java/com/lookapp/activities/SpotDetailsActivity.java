@@ -99,7 +99,7 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
             findViewById(R.id.spot_details_wifi_panel).setVisibility(View.GONE);
         }
         if(spot.isHasNonSmokerArea()){
-            ((ImageView)findViewById(R.id.spot_details_smoking_image)).setImageResource(R.drawable.check);
+            ((TextView)findViewById(R.id.spot_details_smoking_area_tv)).setText(getResources().getString(R.string.spot_details_has_smoking_zone_text));
         }
 
         if(isInFavourites(spot)){
