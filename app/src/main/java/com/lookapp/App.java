@@ -24,6 +24,7 @@ public class App extends Application {
     private List<Spot> favouritesList = new ArrayList<>();
     private boolean isLoggedIn;
     private long adminSpotId;
+    private String fullName;
 
     public static App getInstance(){
         return instance;
@@ -106,5 +107,13 @@ public class App extends Application {
 
     public long getAdminSpotId() {
         return adminSpotId;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 }
