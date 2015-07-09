@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import com.lookapp.api.RequestInvoker;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.LoginResponse;
 import com.lookapp.listeners.LoginDataDownloadListener;
+import com.lookapp.settings.Settings;
 import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
 
@@ -26,22 +29,34 @@ import com.lookapp.support.LookAppTask;
  */
 public class LoginFragment extends CustomFragment implements View.OnClickListener , LoginDataDownloadListener {
     private View rootView;
-    private TextView loginRegister;
+    private TextView loginRegister, errortext;
     private EditText userName;
     private EditText password;
     private ProgressDialog progress;
-
+    private View saveUsername;
+    private CheckBox saveUsernameCheckBox;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_login, container, false);
-        loginRegister = (TextView) rootView.findViewById(R.id.login_register);
+        loginRegister = (TextView) rootView.findViewById(R.id.login_fragment_register);
         loginRegister.setOnClickListener(this);
 
-        userName = (EditText) rootView.findViewById(R.id.login_username);
-        password = (EditText) rootView.findViewById(R.id.login_password);
-
+        userName = (EditText) rootView.findViewById(R.id.et_login_username);
+        password = (EditText) rootView.findViewById(R.id.et_login_password);
+        errortext = (TextView) rootView.findViewById(R.id.tv_error_message);
+        saveUsername = rootView.findViewById(R.id.save_username_area);
+        saveUsername.setOnClickListener(this);
+        saveUsernameCheckBox = (CheckBox) rootView.findViewById(R.id.chb_save_name);
+        saveUsernameCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(!isChecked){
+                    Settings.saveUserName("");
+                }
+            }
+        });
         rootView.findViewById(R.id.login_btn).setOnClickListener(this);
 
         return rootView;
@@ -53,10 +68,17 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
         if (view.getId() == loginRegister.getId()) {
             Intent intent = new Intent(getActivity(), RegisterActivity.class);
             startActivity(intent);
-        }
-
-        if (view.getId() == R.id.login_btn) {
-            login(userName.getText().toString(), password.getText().toString());
+        }else if (view.getId() == R.id.login_btn) {
+            if(userName.getText().length() != 0 &&  password.getText().length() != 0){
+                errortext.setText("");
+                if(saveUsernameCheckBox.isChecked()){
+                    Settings.saveUserName(userName.getText().toString());
+                }
+                login(userName.getText().toString(), password.getText().toString());
+            }else{
+                errortext.setText(getResources().getString(R.string.no_login_data_warning));
+            }
+        }else if(view.getId() == R.id.save_username_area){
 
         }
 
@@ -79,8 +101,9 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
             @Override
             protected void onPostExecute(LoginResponse loginResponse) {
                 if (exception != null) {
-                    Toast.makeText(app.getApplicationContext(), exception.getLookAppError().getMessage(),
-                            Toast.LENGTH_LONG).show();
+                    if(exception.getLookAppError() != null){
+                        errortext.setText(exception.getLookAppError().getMessage());
+                    }
                 } else {
                     progress = ProgressDialog.show(getActivity(), "", getString(R.string.loading_data), true);
                     RequestInvoker.getInstance().onLogin(LoginFragment.this);
@@ -110,5 +133,11 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
         }
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        userName.setText(Settings.getUserName());
     }
 }

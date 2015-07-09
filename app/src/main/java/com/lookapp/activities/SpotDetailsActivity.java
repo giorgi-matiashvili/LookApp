@@ -143,14 +143,15 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
             intent.putExtra("spotId", spot.getSpotId());
             startActivity(intent);
         }else if(id == R.id.spot_details_reserve_btn){
-            if(app.isLoggedIn()){
+            if(app.isLoggedIn() && spot.isCanReservePlace()){
                 Intent intent = new Intent(this, ReserveActivity.class);
                 intent.putExtra("spotId", spot.getSpotId());
                 startActivity(intent);
-            }else{
+            } if(!spot.isCanReservePlace()) {
+                UiUtils.showAlertDialog(getResources().getString(R.string.no_reserve_available_text), this);
+            }else if (!app.isLoggedIn()){
                 UiUtils.showAlertDialog(getResources().getString(R.string.spot_reserve_alert_text), this);
             }
-            //TODO: do reserve
         }else if(id == R.id.spot_details_favorite_icon){
             if(app.isLoggedIn()){
                 addToFavorites(app.getSessionId(), spot.getSpotId(), !isInFavourites(spot));

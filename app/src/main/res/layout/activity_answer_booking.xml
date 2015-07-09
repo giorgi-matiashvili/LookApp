@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/menu_item_name_color"
+        android:layout_marginLeft="@dimen/booking_response_paddings"
+        android:layout_marginTop="@dimen/booking_response_paddings"
+        android:text="@string/reserve_response" />
 
     <EditText
         android:id="@+id/answer_booking_et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/booking_response_paddings"
+        android:layout_marginRight="@dimen/booking_response_paddings"
+        android:layout_marginTop="@dimen/spot_reserve_label_value_margin"
+        android:background="@drawable/rectangle_text_shape"
+        android:lines="5"
+        android:gravity="top"
+        android:padding="7dp" />
+
     <Button
         android:id="@+id/answer_booking_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/booking_response_paddings"
+        android:background="@drawable/round_button_selector"
         android:text="@string/send"
-        />
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

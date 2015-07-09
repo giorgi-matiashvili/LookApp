@@ -85,10 +85,10 @@ public class RegisterActivity extends CustomActivity implements View.OnClickList
             result = false;
         }
 
-        if (smsCode == null || smsCodeEt.getText().length() == 0 || !smsCodeEt.getText().toString().equals(smsCode.getSmsCode())) {
-                animateView(smsCodeEt);
-                result = false;
-        }
+//        if (smsCode == null || smsCodeEt.getText().length() == 0 || !smsCodeEt.getText().toString().equals(smsCode.getSmsCode())) {
+//                animateView(smsCodeEt);
+//                result = false;
+//        }
 
         return result;
 

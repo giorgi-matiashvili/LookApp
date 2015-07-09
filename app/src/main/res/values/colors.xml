@@ -2,7 +2,7 @@
 <resources>
 
     <color name="drawer_divider_color">#ffffff</color>
-    <color name="drawer_item_background_color">#ffdfdfdf</color>
+    <color name="drawer_item_background_color">@color/app_main_color</color>
     <color name="spot_item_name_color">#f80</color>
     
     <color name="spot_details_header_text_color">#ffff7f5d</color>
@@ -14,6 +14,7 @@
     <color name="menu_item_name_color">@color/spot_details_header_text_color</color>
     <color name="menu_item_description_color">@color/spot_details_header_text_color</color>
     <color name="menu_item_price_color">@color/spot_details_header_text_color</color>
+    <color name="app_dark_text_color">#666633</color>
 
 
 </resources>

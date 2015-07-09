@@ -29,4 +29,29 @@
     <dimen name="menu_item_description_text_size">13sp</dimen>
     <dimen name="menu_item_price_text_size">16sp</dimen>
 
+
+    <dimen name="login_fragment_input_image_size">47dp</dimen>
+    <dimen name="login_fragment_welcome_top_margin">40dp</dimen>
+    <dimen name="login_fragment_welcome_text_size">26sp</dimen>
+    <dimen name="login_fragment_ksb_text_size">13sp</dimen>
+    <dimen name="login_fragment_input_margin_top">35dp</dimen>
+    <dimen name="card_page_padding">8dp</dimen>
+    <dimen name="card_viewpager_dimen">16dp</dimen>
+    <dimen name="login_fragment_ksb_margin_top">20dp</dimen>
+    <dimen name="login_fragment_horizontal_line_margin">5dp</dimen>
+    <dimen name="login_fragment_vertical_line_margin">7dp</dimen>
+    <dimen name="login_fragment_chb_margin_top">23dp</dimen>
+    <dimen name="login_fragment_chb_text_size">12sp</dimen>
+    <dimen name="login_fragment_enter_text_size">19sp</dimen>
+    <dimen name="login_fragment_input_text_size">17sp</dimen>
+    <dimen name="login_fragment_input_text_padding">11dp</dimen>
+    <dimen name="login_fragment_banner_top_margin">20dp</dimen>
+    <dimen name="login_fragment_login_btn_width">290dp</dimen>
+    <dimen name="login_error_text_size">12sp</dimen>
+    <dimen name="login_error_text_top_margin">5dp</dimen>
+    <dimen name="login_fragment_register_text_size">15sp</dimen>
+    <dimen name="login_register_top_margin">15dp</dimen>
+    <dimen name="menu_add_button_margin">15dp</dimen>
+    <dimen name="booking_response_paddings">10dp</dimen>
+
 </resources>

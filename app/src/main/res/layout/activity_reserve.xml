@@ -3,11 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/spot_details_activity_margin"
+    android:paddingTop="@dimen/spot_details_activity_margin"
+    android:paddingBottom="@dimen/spot_details_activity_margin"
     android:background="@android:color/white"
     >
 
     <TextView
+        android:layout_marginLeft="@dimen/spot_details_activity_margin"
+        android:layout_marginRight="@dimen/spot_details_activity_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/spot_reserve_num_places"
@@ -16,6 +19,8 @@
         />
 
     <EditText
+        android:layout_marginLeft="@dimen/spot_details_activity_margin"
+        android:layout_marginRight="@dimen/spot_details_activity_margin"
         android:id="@+id/spot_reserve_number_of_places_et"
         android:layout_marginTop="@dimen/spot_reserve_label_value_margin"
         android:layout_width="match_parent"
@@ -30,6 +35,8 @@
         />
 
     <TextView
+        android:layout_marginLeft="@dimen/spot_details_activity_margin"
+        android:layout_marginRight="@dimen/spot_details_activity_margin"
         android:layout_marginTop="@dimen/spot_reserve_vertical_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,6 +46,8 @@
         />
 
     <EditText
+        android:layout_marginLeft="@dimen/spot_details_activity_margin"
+        android:layout_marginRight="@dimen/spot_details_activity_margin"
         android:id="@+id/spot_reserve_visit_time_et"
         android:layout_marginTop="@dimen/spot_reserve_label_value_margin"
         android:layout_width="match_parent"
@@ -52,6 +61,8 @@
         />
 
     <TextView
+        android:layout_marginLeft="@dimen/spot_details_activity_margin"
+        android:layout_marginRight="@dimen/spot_details_activity_margin"
         android:layout_marginTop="@dimen/spot_reserve_vertical_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,6 +72,8 @@
         />
 
     <EditText
+        android:layout_marginLeft="@dimen/spot_details_activity_margin"
+        android:layout_marginRight="@dimen/spot_details_activity_margin"
         android:id="@+id/spot_reserve_comment_et"
         android:layout_marginTop="@dimen/spot_reserve_label_value_margin"
         android:layout_width="match_parent"
@@ -76,6 +89,8 @@
 
 
     <Button
+        android:layout_marginLeft="@dimen/spot_details_activity_margin"
+        android:layout_marginRight="@dimen/spot_details_activity_margin"
         android:id="@+id/spot_reserve_reserve_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

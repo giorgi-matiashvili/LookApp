@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.lookapp.R;
@@ -24,7 +26,7 @@ import java.util.List;
  */
 public class AdminMenuActivity extends CustomActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
 
-    private Button addMenuItem;
+    private ImageButton addMenuItem;
     private SwipeListView listView;
     private  MenuAdapter adapter;
 
@@ -32,7 +34,7 @@ public class AdminMenuActivity extends CustomActivity implements View.OnClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        addMenuItem = (Button)findViewById(R.id.add_menu_btn);
+        addMenuItem = (ImageButton)findViewById(R.id.add_menu_btn);
         addMenuItem.setOnClickListener(this);
         listView = (SwipeListView)findViewById(R.id.menu_list);
 
