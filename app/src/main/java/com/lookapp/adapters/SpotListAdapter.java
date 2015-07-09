@@ -73,7 +73,7 @@ public class SpotListAdapter extends BaseAdapter {
             if (item.getAvatar() != null) {
                 holder.avatar.setImageBitmap(BitmapFactory.decodeByteArray(item.getAvatar(), 0, item.getAvatar().length));
             } else {
-                holder.avatar.setImageResource(R.drawable.ic_drawer_home);
+                holder.avatar.setImageResource(R.drawable.ic_default_avatar);
             }
 
             if (item.isHasWifi()) {

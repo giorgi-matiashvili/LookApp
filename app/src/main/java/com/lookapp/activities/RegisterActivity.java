@@ -39,7 +39,7 @@ public class RegisterActivity extends CustomActivity implements View.OnClickList
 
         smsButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
-
+        getCustomLayoutActionBar();
 
     }
 

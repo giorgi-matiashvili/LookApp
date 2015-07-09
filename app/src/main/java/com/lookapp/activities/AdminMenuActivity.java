@@ -62,6 +62,7 @@ public class AdminMenuActivity extends CustomActivity implements View.OnClickLis
 
 
         downloadMenu(app.getAdminSpotId());
+        getCustomLayoutActionBar();
 
     }
 

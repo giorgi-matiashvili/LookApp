@@ -31,6 +31,7 @@ public class AnswerBookingActivity extends CustomActivity implements View.OnClic
         Bundle b = getIntent().getExtras();
         number = b.getString("number");
         spotName = b.getString("spotName");
+        getCustomLayoutActionBar();
 
     }
 

@@ -30,7 +30,7 @@ public class AddMenuItemActivity extends CustomActivity implements View.OnClickL
         menuDescription = (EditText) findViewById(R.id.description_en_et);
         menuDescriptionKa = (EditText) findViewById(R.id.description_ka_et);
         price = (EditText) findViewById(R.id.price_et);
-
+        getCustomLayoutActionBar();
 
     }
 

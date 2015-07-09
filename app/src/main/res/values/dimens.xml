@@ -5,7 +5,7 @@
     <dimen name="spot_list_divider_height">3dp</dimen>
 
     <dimen name="drawer_item_image_margin">10dp</dimen>
-    <dimen name="drawer_width">240dp</dimen>
+    <dimen name="drawer_width">230dp</dimen>
     <dimen name="spot_details_activity_margin">10dp</dimen>
     <dimen name="spot_details_activity_text_size">14dp</dimen>
     <dimen name="spot_details_activity_head_text_size">16dp</dimen>

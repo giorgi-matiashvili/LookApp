@@ -41,6 +41,7 @@ public class MenuEditActivity extends CustomActivity implements View.OnClickList
         price.setText(b.getDouble("price") + "");
         menuId = b.getLong("menuId");
 
+        getCustomLayoutActionBar();
     }
 
     @Override

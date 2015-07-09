@@ -36,6 +36,7 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
     private Dialog ratingDialog;
     private RatingBar ratingBar;
     private TextView ratingTv;
+    private int selected = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +51,10 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
     }
 
     private Spot getSpot(long id) {
-        for(Spot s : app.getSpotList()){
+        for(int i = 0; i < app.getSpotList().size(); i++){
+            Spot s = app.getSpotList().get(i);
             if(s.getSpotId() == id){
+                selected = i;
                 return s;
             }
         }
@@ -92,6 +95,7 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
         txt = ((TextView)findViewById(R.id.spot_details_address));
         txt.setText(spot.getSpotAddress());
         txt.setOnClickListener(this);
+        ((TextView)findViewById(R.id.spot_details_address_label)).setOnClickListener(this);
         ((TextView)findViewById(R.id.spot_details_contact_info)).setText(spot.getContactInfo());
         ((TextView)findViewById(R.id.spot_details_event_description)).setText(spot.getEventDescription());
         ((TextView)findViewById(R.id.spot_details_wifi_password)).setText(spot.getWifiPassword());
@@ -136,8 +140,10 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
             }else{
                 UiUtils.showAlertDialog(getResources().getString(R.string.spot_rating_alert_text), this);
             }
-        }else if(id == R.id.spot_details_address){
-            // TODO map
+        }else if(id == R.id.spot_details_address || id == R.id.spot_details_address_label){
+            Intent intent = new Intent(this, MapActivity.class);
+            intent.putExtra("selected", selected);
+            startActivity(intent);
         }else if(id == R.id.spot_details_menu){
             Intent intent = new Intent(this, SpotMenuActivity.class);
             intent.putExtra("spotId", spot.getSpotId());

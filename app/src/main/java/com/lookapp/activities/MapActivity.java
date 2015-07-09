@@ -28,7 +28,7 @@ import java.util.List;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private static final  int INITIAL_ZOOM = 14;
-    private static List<Spot> spotObjects;
+    private List<Spot> spotObjects;
     private static int selected;
 
     private GoogleMap map;
@@ -38,14 +38,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        selected = 0;
-        Spot sp = new Spot();
-        sp.setSpotAddress("ვაჟა ფშაველა");
-        sp.setType("კაფე, აბრი, რესტორანი");
-        sp.setLatitude(41.7273070);
-        sp.setLongitude(44.7634988);
-        spotObjects = new ArrayList<>();
-        spotObjects.add(sp);
+        selected = getIntent().getExtras().getInt("selected");
+//        selected = 0;
+//        Spot sp = new Spot();
+//        sp.setSpotAddress("ვაჟა ფშაველა");
+//        sp.setType("კაფე, აბრი, რესტორანი");
+//        sp.setLatitude(41.7273070);
+//        sp.setLongitude(44.7634988);
+//        spotObjects = new ArrayList<>();
+//        spotObjects.add(sp);
+        spotObjects = App.getInstance().getSpotList();
         Log.d("map", "ON CREATE MOTHERFUCKER MAP");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

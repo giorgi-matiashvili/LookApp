@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="5dp"
     android:background="@android:color/white">
 
     <LinearLayout
@@ -79,7 +80,7 @@
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="6dp"
-            android:text="event (EN):" />
+            android:text="Event (EN):" />
 
         <EditText
             android:id="@+id/event_en"
@@ -150,7 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="name(EN):" />
+                android:text="Name(EN):" />
 
             <EditText
                 android:id="@+id/spot_name_et_en"
@@ -290,16 +291,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:layout_weight="1"
+                android:layout_weight="0.94"
                 android:background="@drawable/rectangle_text_shape"
                 android:inputType="datetime"
                 android:padding="3dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="-"
+                android:textSize="@dimen/admin_panel_text_size"
+                />
 
             <EditText
                 android:id="@+id/working_hours_end"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.94"
+                android:layout_marginLeft="4dp"
                 android:background="@drawable/rectangle_text_shape"
                 android:inputType="time"
                 android:padding="3dp" />
@@ -349,6 +359,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
+            android:textSize="@dimen/admin_panel_text_size"
+            android:paddingLeft="5dp"
             android:background="@drawable/rectangle_text_shape"
             android:padding="3dp" />
 
@@ -358,7 +370,7 @@
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="6dp"
-            android:text="address(EN):" />
+            android:text="Address(EN):" />
 
         <EditText
             android:id="@+id/address_en"
@@ -366,6 +378,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
+            android:textSize="@dimen/admin_panel_text_size"
+            android:paddingLeft="5dp"
             android:background="@drawable/rectangle_text_shape"
             android:padding="3dp" />
 
@@ -382,6 +396,8 @@
             android:id="@+id/type_ka"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/admin_panel_text_size"
+            android:paddingLeft="5dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:background="@drawable/rectangle_text_shape"
@@ -393,13 +409,15 @@
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="6dp"
-            android:text="type(EN):" />
+            android:text="Type(EN):" />
 
         <EditText
             android:id="@+id/type_en"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
+            android:textSize="@dimen/admin_panel_text_size"
+            android:paddingLeft="5dp"
             android:layout_marginRight="4dp"
             android:background="@drawable/rectangle_text_shape"
             android:padding="3dp" />
@@ -414,24 +432,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/save_others"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_button_selector"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/save"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/admin_panel_text_size" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
                 android:id="@+id/menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -444,6 +444,27 @@
                 android:text="@string/menu"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/admin_panel_text_size" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/save_others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_button_selector"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/save"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/admin_panel_text_size" />
+
+
+
         </LinearLayout>
 
 

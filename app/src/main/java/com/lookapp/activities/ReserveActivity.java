@@ -53,6 +53,7 @@ public class ReserveActivity extends CustomActivity implements View.OnClickListe
                 }
             }
         });
+        getCustomLayoutActionBar();
     }
 
     @Override

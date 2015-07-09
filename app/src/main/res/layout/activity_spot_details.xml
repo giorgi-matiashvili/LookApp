@@ -15,7 +15,7 @@
             android:id="@+id/spot_details_cover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/cover_default"
+            android:src="@drawable/cover_default"
             />
 
         <LinearLayout
@@ -74,6 +74,7 @@
             />
 
         <TextView
+            android:id="@+id/spot_details_address_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/spot_details_address_text"

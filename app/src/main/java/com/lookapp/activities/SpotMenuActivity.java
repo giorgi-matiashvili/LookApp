@@ -34,6 +34,7 @@ public class SpotMenuActivity extends CustomActivity {
         adapter = new MenuAdapter(new ArrayList<MenuItem>(), getLayoutInflater());
         listView.setAdapter(adapter);
         downloadMenu(spotId);
+        getCustomLayoutActionBar();
     }
 
     private void downloadMenu(final long spotId){

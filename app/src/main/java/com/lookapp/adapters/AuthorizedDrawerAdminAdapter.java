@@ -25,11 +25,11 @@ public class AuthorizedDrawerAdminAdapter extends BaseAdapter {
     public AuthorizedDrawerAdminAdapter(LayoutInflater inflater){
         this.inflater  = inflater;
         drawerObjectList = new ArrayList<DrawerObject>();
-        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.favourites), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.favourites), R.drawable.ic_drawer_favourites));
         drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.spot_list), R.drawable.ic_drawer_home));
-        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.admin_panel), R.drawable.ic_drawer_home));
-        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.admin_booking), R.drawable.ic_drawer_home));
-        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.logout), R.drawable.ic_drawer_home));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.admin_panel), R.drawable.ic_gear));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.admin_booking), R.drawable.ic_contact));
+        drawerObjectList.add(new DrawerObject(inflater.getContext().getResources().getString(R.string.logout), R.drawable.ic_drawer_logout));
     }
 
     @Override

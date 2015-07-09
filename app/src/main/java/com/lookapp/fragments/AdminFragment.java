@@ -17,6 +17,7 @@ import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.SpotForAdmin;
 import com.lookapp.support.LookAppService;
 import com.lookapp.support.LookAppTask;
+import com.lookapp.utils.UiUtils;
 
 /**
  * Created by user on 05/07/2015.
@@ -157,7 +158,9 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
                 @Override
                 protected void onPostExecute(Void aVoid) {
                     if(exception == null){
-//                        AdminFragment.this.getSpotForAdmin(app.getAdminSpotId());
+                        UiUtils.showToast(getResources().getString(R.string.seats_update_success), getActivity());
+                    }else{
+                        UiUtils.showToast(getResources().getString(R.string.seats_update_error), getActivity());
                     }
                 }
             };
@@ -217,7 +220,11 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
             @Override
             protected void onPostExecute(Void aVoid) {
                 if(exception == null){
+                    UiUtils.showToast(getResources().getString(R.string.event_update_success), getActivity());
                     AdminFragment.this.getSpotForAdmin(app.getAdminSpotId());
+                }else{
+                    UiUtils.showToast(getResources().getString(R.string.event_update_error), getActivity());
+
                 }
             }
         };

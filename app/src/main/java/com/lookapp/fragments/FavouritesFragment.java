@@ -1,5 +1,6 @@
 package com.lookapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.lookapp.R;
 import com.lookapp.Tasks.AvatarLookAppTask;
+import com.lookapp.activities.SpotDetailsActivity;
 import com.lookapp.adapters.SpotListAdapter;
 import com.lookapp.api.exception.LookAppException;
 import com.lookapp.bean.Spot;
@@ -32,6 +34,7 @@ import java.util.List;
  */
 public class FavouritesFragment extends CustomFragment implements  ListView.OnItemClickListener {
 
+    private static final int SPOT_DETAILS_ACTIVITY_CODE = 1;
 
     private SwipeListView spotList;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -190,7 +193,17 @@ public class FavouritesFragment extends CustomFragment implements  ListView.OnIt
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), SpotDetailsActivity.class);
+        intent.putExtra("spotId", adapter.getItemId(position));
+        startActivityForResult(intent, SPOT_DETAILS_ACTIVITY_CODE);
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == SPOT_DETAILS_ACTIVITY_CODE){
+            logger.d("SpotDetails finished, refreshing favorite list");
+            downloadFavouritesList(true);
+        }
     }
 
 }
