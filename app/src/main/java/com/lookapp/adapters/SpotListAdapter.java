@@ -82,6 +82,12 @@ public class SpotListAdapter extends BaseAdapter {
                 holder.wifi.setVisibility(View.GONE);
             }
 
+            if(position == spotList.size()-1){
+                convertView.findViewById(R.id.divider).setVisibility(View.GONE);
+            }else {
+                convertView.findViewById(R.id.divider).setVisibility(View.VISIBLE);
+            }
+
         }else {
             convertView = inflater.inflate(R.layout.null_layout, parent, false);
         }

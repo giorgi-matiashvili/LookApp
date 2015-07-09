@@ -19,6 +19,7 @@ public class UnauthorizedDrawerAdapter extends BaseAdapter {
 
     private List<DrawerObject> drawerObjectList;
     private LayoutInflater inflater;
+    private int checkedPosition = 2;
 
     public UnauthorizedDrawerAdapter(LayoutInflater inflater){
         this.inflater  = inflater;
@@ -60,6 +61,12 @@ public class UnauthorizedDrawerAdapter extends BaseAdapter {
         vh.text.setText(getItem(position).text);
         vh.img.setImageResource(getItem(position).imgId);
 
+        if(position == checkedPosition){
+            convertView.setBackgroundResource(R.color.search_background_color);
+        }else {
+            convertView.setBackgroundResource(R.color.drawer_background_color);
+        }
+
 
         return convertView;
     }
@@ -82,4 +89,11 @@ public class UnauthorizedDrawerAdapter extends BaseAdapter {
         TextView text;
     }
 
+    public int getCheckedPosition() {
+        return checkedPosition;
+    }
+
+    public void setCheckedPosition(int checkedPosition) {
+        this.checkedPosition = checkedPosition;
+    }
 }

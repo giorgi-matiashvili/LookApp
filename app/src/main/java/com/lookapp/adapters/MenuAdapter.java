@@ -59,6 +59,12 @@ public class MenuAdapter extends BaseAdapter {
         holder.description.setText(menuItems.get(position).getDescriptionToShow());
         holder.price.setText(menuItems.get(position).getPrice() + "");
 
+        if(position == menuItems.size()-1){
+            convertView.findViewById(R.id.divider).setVisibility(View.GONE);
+        }else {
+            convertView.findViewById(R.id.divider).setVisibility(View.VISIBLE);
+        }
+
 
         return convertView;
     }

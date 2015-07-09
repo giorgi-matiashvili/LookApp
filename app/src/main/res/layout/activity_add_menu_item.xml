@@ -2,54 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:orientation="horizontal">
+
 
         <TextView
+
+            android:layout_margin="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="სახელი(KA): " />
 
         <EditText
+            android:gravity="top"
+            android:padding="5dp"
+            android:lines="2"
+            android:background="@drawable/rectangle_text_shape"
+            android:layout_margin="4dp"
             android:id="@+id/name_ka_et"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+             />
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:orientation="horizontal">
+
 
         <TextView
+            android:layout_margin="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name(EN): " />
 
         <EditText
+            android:gravity="top"
+            android:background="@drawable/rectangle_text_shape"
+            android:padding="5dp"
+            android:lines="2"
+            android:layout_margin="4dp"
             android:id="@+id/name_en_et"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_width="match_parent"/>
 
-    </LinearLayout>
 
 
     <TextView
+        android:layout_margin="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="აღწერა(KA): " />
 
     <EditText
+        android:gravity="top"
+        android:background="@drawable/rectangle_text_shape"
+        android:padding="5dp"
+        android:layout_margin="4dp"
         android:id="@+id/description_ka_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,15 +65,19 @@
 
 
     <TextView
+        android:layout_margin="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="description(EN): " />
 
     <EditText
+        android:gravity="top"
+        android:background="@drawable/rectangle_text_shape"
+        android:padding="5dp"
+        android:layout_margin="4dp"
         android:id="@+id/description_en_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="top"
         android:lines="3" />
 
 
@@ -78,9 +90,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
             android:text="@string/price" />
 
         <EditText
+            android:background="@drawable/rectangle_text_shape"
+            android:padding="5dp"
             android:id="@+id/price_et"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -90,6 +105,8 @@
     </LinearLayout>
 
     <Button
+        android:textColor="@android:color/white"
+        android:background="@drawable/round_button_selector"
         android:id="@+id/add_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

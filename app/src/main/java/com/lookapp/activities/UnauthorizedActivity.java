@@ -29,6 +29,7 @@ public class UnauthorizedActivity extends CustomActivity{
     private CustomFragment[] drawerFragments;
     private AvatarLookAppTask avatarDownloadTask;
     private SearchClickListener searchListener;
+    private UnauthorizedDrawerAdapter drawerAdapter;
 //    private ActionBar actionBar;
 
     @Override
@@ -102,7 +103,8 @@ public class UnauthorizedActivity extends CustomActivity{
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        mDrawerList.setAdapter(new UnauthorizedDrawerAdapter(getLayoutInflater()));
+        drawerAdapter = new UnauthorizedDrawerAdapter(getLayoutInflater());
+        mDrawerList.setAdapter(drawerAdapter);
         mDrawerList.setOnItemClickListener(new OnUnauthorizedDrawerClickListener());
 
     }
@@ -113,6 +115,8 @@ public class UnauthorizedActivity extends CustomActivity{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             showSearch(false);
+            drawerAdapter.setCheckedPosition(position);
+            drawerAdapter.notifyDataSetChanged();
             switch (position){
                 case 0:{
                     showFragment(drawerFragments[0]);
