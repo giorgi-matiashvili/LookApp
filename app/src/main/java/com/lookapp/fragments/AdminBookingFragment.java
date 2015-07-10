@@ -2,6 +2,7 @@ package com.lookapp.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -99,7 +100,7 @@ public class AdminBookingFragment extends CustomFragment implements AdapterView.
             }
         };
 
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
 

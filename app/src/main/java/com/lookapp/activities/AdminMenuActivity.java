@@ -1,6 +1,7 @@
 package com.lookapp.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -89,7 +90,7 @@ public class AdminMenuActivity extends CustomActivity implements View.OnClickLis
                 }
             }
         };
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
     }
 

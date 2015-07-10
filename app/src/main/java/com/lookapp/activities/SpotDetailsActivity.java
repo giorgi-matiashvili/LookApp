@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.MotionEvent;
@@ -82,7 +83,7 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
                 }
             }
         };
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private void fillData() {
@@ -220,7 +221,7 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
                     }
                 };
 
-                task.execute();
+                task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
         });
         ratingDialog.show();
@@ -285,6 +286,6 @@ public class SpotDetailsActivity extends CustomActivity implements View.OnClickL
         };
 
 
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 }

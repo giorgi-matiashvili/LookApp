@@ -1,5 +1,6 @@
 package com.lookapp.activities;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -76,7 +77,7 @@ public class MenuEditActivity extends CustomActivity implements View.OnClickList
                 }
             }
         };
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
     }
 
@@ -103,6 +104,6 @@ public class MenuEditActivity extends CustomActivity implements View.OnClickList
                 }
             }
         };
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 }

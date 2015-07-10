@@ -1,6 +1,7 @@
 package com.lookapp.fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -166,13 +167,13 @@ public class SpotListFragment extends CustomFragment implements  ListView.OnItem
                     adapter.notifyDataSetChanged();
                     AvatarLookAppTask avatarDownloadTask = new AvatarLookAppTask();
                     avatarDownloadTask.addAvatarDownloadListener(SpotListFragment.this);
-                    avatarDownloadTask.execute();
+                    avatarDownloadTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
                 }
             }
         };
 
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     @Override

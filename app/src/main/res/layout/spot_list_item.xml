@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_weight="0.33"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:src="@drawable/ic_default_avatar"
@@ -42,7 +42,7 @@
         android:layout_width="0dp"
         android:layout_weight="0.66"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/spot_name"

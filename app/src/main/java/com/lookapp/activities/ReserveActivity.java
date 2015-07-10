@@ -1,5 +1,6 @@
 package com.lookapp.activities;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -83,7 +84,7 @@ public class ReserveActivity extends CustomActivity implements View.OnClickListe
             }
         };
 
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private boolean isInvalidData() {

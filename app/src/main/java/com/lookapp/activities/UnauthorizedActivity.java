@@ -2,6 +2,7 @@ package com.lookapp.activities;
 
 import android.app.ActionBar;
 import android.app.FragmentManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -40,7 +41,7 @@ public class UnauthorizedActivity extends CustomActivity{
         initDrawerFragments();
         initDrawerLayout();
         showFragment(drawerFragments[2]);
-        avatarDownloadTask.execute();
+        avatarDownloadTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         actionBar = getCustomLayoutActionBar();
         showActionBarToggle(actionBar, true);
         addToggleListener();

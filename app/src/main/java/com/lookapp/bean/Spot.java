@@ -5,7 +5,6 @@ import com.google.gson.annotations.Expose;
 
 public class Spot {
 
-
     @Expose private long spotId;
     @Expose private String spotName;
     @Expose private String spotAddress;
@@ -32,6 +31,7 @@ public class Spot {
                 String description, String contactInfo, String workingHours,
                 boolean hasWifi, boolean hasNonSmokerArea, boolean canReservePlace,
                 String rating, String eventDescription, double longitude, double latitude, String type, String wifiPassword) {
+
 
         this.spotId = spotId;
         this.spotName = spotName;

@@ -2,6 +2,7 @@ package com.lookapp.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -113,7 +114,7 @@ public class LoginFragment extends CustomFragment implements View.OnClickListene
                 }
             }
         };
-        loginTask.execute();
+        loginTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
     }
 

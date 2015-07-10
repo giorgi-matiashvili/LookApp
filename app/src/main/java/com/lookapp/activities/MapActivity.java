@@ -28,7 +28,7 @@ import java.util.List;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private static final  int INITIAL_ZOOM = 14;
-    private List<Spot> spotObjects;
+    private static List<Spot> spotObjects;
     private static int selected;
 
     private GoogleMap map;
@@ -55,13 +55,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
     private void addMarkers() {
+        Log.d("map", "adding markers");
+
         map.setMyLocationEnabled(true);
 
         Marker selectedObject = null;
         for (int i = 0; i < spotObjects.size(); i++) {
             Spot serviceObject = spotObjects.get(i);
+            Log.d("map", "Adding: " + serviceObject.getSpotName());
             Marker m = map.addMarker(new MarkerOptions().
-                    position(new LatLng(serviceObject.getLatitude(), serviceObject.getLongitude())).
+                    position(new LatLng(serviceObject.getLongitude(), serviceObject.getLatitude())).
                     title(serviceObject.getSpotAddress()).
                     snippet(serviceObject.getType()).
                     icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_map_marker)));

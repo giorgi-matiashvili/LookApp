@@ -1,6 +1,7 @@
 package com.lookapp.fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -112,7 +113,7 @@ public class FavouritesFragment extends CustomFragment implements  ListView.OnIt
             }
         };
         if(app.isLoggedIn()){
-            deleteFavouriteTask.execute();
+            deleteFavouriteTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }else {
             Settings.setFavouritesList();
             downloadFavouritesList(false);
@@ -180,7 +181,7 @@ public class FavouritesFragment extends CustomFragment implements  ListView.OnIt
 
 
         if(app.isLoggedIn()){
-            task.execute();
+            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }else {
             app.setFavouritesList(Settings.getFavouritesList());
             adapter.setSpotList(Settings.getFavouritesList());

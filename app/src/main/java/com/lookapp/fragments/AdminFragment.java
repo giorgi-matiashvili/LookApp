@@ -1,6 +1,7 @@
 package com.lookapp.fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -70,7 +71,7 @@ public class AdminFragment extends CustomFragment implements View.OnClickListene
 
             }
         };
-        spotForAdminDownloadTask.execute();
+        spotForAdminDownloadTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private void initDefaults() {

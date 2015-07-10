@@ -1,5 +1,6 @@
 package com.lookapp.activities;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -63,6 +64,6 @@ public class SpotMenuActivity extends CustomActivity {
                 }
             }
         };
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 }

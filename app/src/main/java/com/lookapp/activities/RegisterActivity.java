@@ -1,5 +1,6 @@
 package com.lookapp.activities;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -127,7 +128,7 @@ public class RegisterActivity extends CustomActivity implements View.OnClickList
                 }
             }
         };
-        registerTask.execute();
+        registerTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
     }
 

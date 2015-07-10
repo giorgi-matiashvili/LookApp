@@ -1,5 +1,6 @@
 package com.lookapp.activities;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -59,7 +60,7 @@ public class AddMenuItemActivity extends CustomActivity implements View.OnClickL
                     }
                 }
             };
-            task.execute();
+            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
     }
 }

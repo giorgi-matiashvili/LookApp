@@ -40,8 +40,15 @@ public class AuthorizedActivity extends CustomActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorized);
 
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
         avatarDownloadTask = new AvatarLookAppTask();
         initDrawerFragments();
+        View headerView = getLayoutInflater().inflate(R.layout.drawer_list_header,null);
+        headerView.setClickable(false);
+        ((TextView)headerView.findViewById(R.id.drawer_item_header_text)).setText(app.getFullName());
+        mDrawerList.addHeaderView(headerView, null, false);
         initDrawerLayout();
         showFragment(drawerFragments[1]);
         avatarDownloadTask.execute();
@@ -52,10 +59,7 @@ public class AuthorizedActivity extends CustomActivity {
         addSearchClickListener();
 
 
-        View headerView = getLayoutInflater().inflate(R.layout.drawer_list_header,null);
-        ((TextView)headerView.findViewById(R.id.drawer_item_header_text)).setText(app.getFullName());
 
-        mDrawerList.addHeaderView(headerView);
 
 
         showSearch(true);
@@ -135,8 +139,7 @@ public class AuthorizedActivity extends CustomActivity {
 
     private void initDrawerLayout() {
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
         if (app.getAdminSpotId() < 0) {
             drawerAdapter = new AuthorizedDrawerAdapter(getLayoutInflater());
             mDrawerList.setAdapter(drawerAdapter);
